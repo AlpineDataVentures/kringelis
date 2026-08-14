@@ -1,57 +1,72 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
-    },
-    {
-      "name": "About",
-      "url": "/about"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
-    },
-    {
-      "name": "Pages",
-      "url": "",
+      "name": "Leistungen",
       "hasChildren": true,
       "children": [
         {
-          "name": "Contact",
-          "url": "/contact"
+          "name": "Malerarbeiten",
+          "url": "/leistungen/malerarbeiten"
         },
         {
-          "name": "Blog",
-          "url": "/blog"
+          "name": "Tapezierarbeiten",
+          "url": "/leistungen/tapezierarbeiten"
         },
         {
-          "name": "Authors",
-          "url": "/authors"
+          "name": "Lackierarbeiten",
+          "url": "/leistungen/lackierarbeiten"
         },
         {
-          "name": "Categories",
-          "url": "/categories"
+          "name": "Spachteltechniken",
+          "url": "/leistungen/spachteltechniken"
         },
         {
-          "name": "Tags",
-          "url": "/tags"
+          "name": "Dekorative Wandgestaltung",
+          "url": "/leistungen/dekorative-wandgestaltung"
         },
         {
-          "name": "404 Page",
-          "url": "/404"
+          "name": "Stuck",
+          "url": "/leistungen/stuck"
+        },
+        {
+          "name": "Parkett",
+          "url": "/leistungen/parkett"
         }
       ]
+    },
+    {
+      "name": "Altbausanierung",
+      "url": "/leistungen/altbausanierung"
+    },
+    {
+      "name": "Renovierung",
+      "url": "/leistungen/renovierung"
+    },
+    {
+      "name": "Referenzen",
+      "url": "/referenzen"
+    },
+    {
+      "name": "Über uns",
+      "url": "/ueber"
+    },
+    {
+      "name": "Kontakt",
+      "url": "/kontakt"
     }
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Impressum",
+      "url": "/impressum"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "Datenschutz",
+      "url": "/datenschutz"
+    },
+    {
+      "name": "Widerrufsbelehrung",
+      "url": "/widerruf"
     }
   ]
 }

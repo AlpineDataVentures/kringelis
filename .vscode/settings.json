@@ -2,5 +2,11 @@
   "files.associations": {
     "*.mdx": "markdown"
   },
-  "tailwindCSS.experimental.configFile": "src/styles/main.css"
+  "tailwindCSS.experimental.configFile": "src/styles/main.css",
+  "cSpell.words": [
+    "kringelis",
+    "Kringelis",
+    "malerbetrieb",
+    "Malerbetrieb"
+  ]
 }
