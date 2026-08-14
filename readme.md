@@ -1,21 +1,12 @@
-<h1 align=center>Astro + Tailwind CSS + TypeScript Starter and Boilerplate</h1>
+<h1 align=center>Web-Seite Malermeister Kringelis</h1>
 
-<p align=center>Astroplate is a free starter template built with Astro, TailwindCSS & TypeScript, providing everything you need to jumpstart your Astro project and save valuable time.</p>
+<p align=center>Erstellt auf Basis des <a href="https://astro.build/">Astro-Frameworks</a> inklusive TailwindCSS, TypeScript und React.</p>
 
-<img width="1600" height="900" alt="astroplate-free-astro-starter-template" src="https://github.com/user-attachments/assets/f7216b22-2c39-4963-a069-c25ea3488c6a" />
-
-<h2 align="center"> <a target="_blank" href="https://astroplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a target="_blank" href="https://astroplate-multilang.netlify.app/" rel="nofollow">👀 Demo Multilang</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-astroplate-netlify-app/yzx3foum3w?form_factor=desktop">Page Speed (100%)🚀</a> |   <a target="_blank" href="https://app.sitepins.com/new/clone?name=Astroplate&repository=https://github.com/zeon-studio/astroplate?aff=astroplate">
-    <img src="https://sitepins.com/button.svg" alt="Edit with Sitepins">
-  </a>
-</h2>
-
-<p align=center>Made with ♥ by <a href="https://zeon.studio/?ref=astroplate-github">Zeon Studio</a></p>
-
-<p align=center> If you find this project useful, please give it a ⭐ to show your support. </p>
+<p align=center>Made by <a href="https://alpinedata.de">Alpine Data Ventures</a></p>
 
 <p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%407.0.0">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=7.0.0&color=000&logo=astro"  alt="Astro Version 7.0.0"/>
+  <a href="https://github.com/withastro/astro/releases/tag/astro%404.3.2" alt="Contributors">
+    <img src="https://img.shields.io/static/v1?label=ASTRO&message=4.3&color=000&logo=astro" />
   </a>
 
   <a href="https://github.com/zeon-studio/astroplate/blob/main/LICENSE">
@@ -80,19 +71,19 @@
 ### 👉 Install Dependencies
 
 ```bash
-pnpm install
+npm install
 ```
 
 ### 👉 Development Command
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 ### 👉 Build Command
 
 ```bash
-pnpm run build
+npm run build
 ```
 
 ### 👉 Generate LLM Files
@@ -107,10 +98,10 @@ Use one of these ways:
 
 ```bash
 # included in build
-pnpm run build
+npm run build
 
 # or run manually after build
-pnpm run generate-llms
+npm run generate-llms
 ```
 
 Configuration is in `src/config/config.json` under `llms`:
@@ -124,13 +115,13 @@ Configuration is in `src/config/config.json` under `llms`:
 ### 👉 Preview on Cloudflare Workers
 
 ```bash
-pnpm run preview:cf-workers
+npm run preview:cf-workers
 ```
 
 ### 👉 Deploy to Cloudflare Workers
 
 ```bash
-pnpm run deploy:cf-workers
+npm run deploy:cf-workers
 ```
 
 ### 👉 Build and Run With Docker
@@ -167,23 +158,11 @@ Click the Edit with Sitepins button below and follow the on-screen instructions 
     <img src="https://sitepins.com/button.svg" alt="Edit with Sitepins">
   </a>
 
-<!-- reporting issue -->
-
-## 🐞 Reporting Issues
-
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/astroplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/astroplate/issues).
-
 <!-- licence -->
-
 ## 📝 License
 
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/?ref=astroplate-github)
+Copyright (c) 2024 - Present, Alpine Data Ventures
 
-**Code License:** Released under the [MIT](https://github.com/zeon-studio/astroplate/blob/main/LICENSE) license.
+**Code License:**
 
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
-
-## 💻 Need Custom Development Services?
-
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://zeon.studio/?ref=astroplate-github).
+Part of the code is developed by [Zeon Studio](https://zeon.studio/) and released under the [MIT](https://github.comzeon-studio/astroplate/blob/main/LICENSE) license.
