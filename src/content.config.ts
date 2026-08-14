@@ -58,16 +58,16 @@ const pagesCollection = defineCollection({
 });
 
 // about collection schema
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
+const ueberCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/ueber" }),
   schema: z.object({
     ...commonFields,
   }),
 });
 
 // contact collection schema
-const contactCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/contact" }),
+const kontaktCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/kontakt" }),
   schema: z.object({
     ...commonFields,
   }),
@@ -150,8 +150,8 @@ export const collections = {
   blog: blogCollection,
   authors: authorsCollection,
   pages: pagesCollection,
-  about: aboutCollection,
-  contact: contactCollection,
+  ueber: ueberCollection,
+  kontakt: kontaktCollection,
 
   // sections
   ctaSection: ctaSectionCollection,
