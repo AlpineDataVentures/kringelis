@@ -333,7 +333,7 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
   - AVV mit IONOS abschließen
   - Formular-Backend mit E-Mail-Weiterleitung bauen (Netlify Forms gibt es dort nicht)
   - Weiterleitungen und Security-Header aus `netlify.toml` in die `.htaccess` übertragen
-- [ ] Umzug Netlify → IONOS: Zeitpunkt, Tarif (statisches Hosting oder Webspace), Umsetzung von Weiterleitungen und Security-Headern dort (`.htaccess` statt `_redirects`/`netlify.toml`)
+- [ ] IONOS: Tarif (Webspace mit PHP für das Formular), Deploy-Weg (z. B. SFTP oder GitHub Action), Go-live-Termin
 - [ ] Saschas Nachname, Rolle/Bezeichnung (Geselle?) und Einverständnis für Foto und Namen
 - [ ] Freigabe der ausgewählten Bilder aus `Bildvorrat/neu` (Bildrechte, Einwilligung der abgebildeten Personen und Kunden); ggf. ergänzendes Fotoshooting für Team und Hero
 - [ ] Gibt es Hausfarben? Sonst leiten wir sie aus dem modernisierten Logo ab.
