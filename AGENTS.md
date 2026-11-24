@@ -13,3 +13,7 @@ Before any Astro work, connect to the "Astro docs" MCP server configured in `.mc
 Before modifying the template structure, styles, pages, or configuration, trigger the `astro-template-guidance` skill to read the relevant architectural documentation. This ensures you follow the project's established conventions instead of inventing your own.
 
 <!-- END:astro-template-guidance-rules -->
+
+# Project requirements: ALWAYS check before design/content decisions
+
+The customer requirements (target audience, sitemap, imagery, design, security, GDPR/legal, SEO, acceptance criteria, open questions) are documented in `docs/ANFORDERUNGEN.md`. Read it before building pages, components or content, and keep it updated when requirements change.
