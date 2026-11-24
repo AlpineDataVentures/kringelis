@@ -6,6 +6,7 @@
 - **Kunde:** Malerbetrieb Manuel Kringelis, Winzererstr. 69, 80797 München
 - **Alte Seite:** https://www.malerbetrieb-kringelis.de/ (Joomla, Backup vorhanden)
 - **Neue Seite:** Astro 7 + Tailwind 4, statisch gebaut (dieses Repo)
+- **Hosting:** zunächst **Netlify** (Build-Pipeline steht, baut automatisch bei Änderungen auf GitHub), später Umzug zu **IONOS**
 - **Umsetzung:** Alpine Data Ventures
 - **Stand:** 24.11.2026
 
@@ -61,6 +62,15 @@ Kein Ziel: Onlineshop, Preisrechner, Blog mit regelmäßigen Beiträgen (das pfl
 ## 4. Positionierung und Botschaften
 
 Kernbotschaft (Arbeitstitel): **„Meisterbetrieb aus Schwabing – sauber, termintreu, mit Blick fürs Detail.“**
+
+### Meisterbetrieb klar herausstellen
+
+Maler und Lackierer ist ein **zulassungspflichtiges Handwerk mit Meisterpflicht** (Handwerksordnung, [Anlage A Nr. 10](https://www.gesetze-im-internet.de/hwo/anlage_a.html)). Selbstständig führen darf so einen Betrieb nur, wer in die Handwerksrolle eingetragen ist, in der Regel mit Meisterbrief. Der Meistertitel ist also ein echter, belegbarer Qualitätsnachweis und soll sichtbar sein:
+
+- „**Meisterbetrieb**“ im Hero bzw. Claim, in der Vertrauensleiste, im Seitentitel (`<title>`) und in der Meta-Beschreibung
+- Manuel immer als „**Maler- und Lackierermeister**“ vorstellen (Abschnitt Über uns, Impressum, strukturierte Daten)
+- Optional ein Bild des Meisterbriefs bzw. ein Meisterbetrieb-Siegel (falls die Handwerkskammer bzw. Innung eines anbietet und es genutzt werden darf)
+- Stuck: Stuckateure sind ebenfalls ein eigenes Meisterhandwerk ([Anlage A Nr. 9](https://www.gesetze-im-internet.de/hwo/anlage_a.html)). Stuckarbeiten deshalb als Leistung im Rahmen des Malerhandwerks formulieren (Stuckprofile, Zier- und Deckenleisten anbringen, ausbessern, restaurieren und gestalten) und den Betrieb nicht als „Stuckateurbetrieb“ bezeichnen.
 
 Belegbare Kernaussagen, die immer wieder auftauchen sollen:
 
@@ -163,11 +173,41 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 
 - Modern, ruhig und hochwertig: viel Weißraum, große Bilder, wenig Deko. Das Handwerk soll im Vordergrund stehen, nicht die Webseite.
 - Farbpalette: zurückhaltende, warme Neutraltöne als Basis (Kalkweiß, Sand, Greige, Anthrazit) und **eine** markante Akzentfarbe für Buttons und Links (möglichst aus dem Logo ableiten). Die Farben der Projektfotos sollen wirken, die Oberfläche nimmt sich zurück.
-- Typografie: eine gut lesbare Grotesk für Fließtext, optional eine charaktervolle Schrift für Überschriften. Schriften **selbst hosten** (Astro Fonts API, keine Einbindung über Google-Server).
+- Typografie: eine gut lesbare Grotesk für Fließtext, optional eine charaktervolle Schrift für Überschriften (siehe „Schriften“ unten).
 - Fließtext mindestens 16–18 px. Die Zielgruppe ist über 30, Lesbarkeit geht vor Eleganz.
 - Mobile first. Anruf-Button auf dem Handy immer erreichbar (Sticky-Header oder schwebender Button).
-- Dark Mode bringt für diese Zielgruppe keinen Mehrwert. Theme-Switcher entfernen und den Light Mode gestalten (`npm run remove-darkmode`).
+- **Dark Mode bleibt vorerst erhalten.** Ob er bleibt, entscheidet Manuel. Bis dahin beide Modi gestalten und testen (Kontraste, Logo-Variante für dunklen Hintergrund). Falls er wegfällt: `npm run remove-darkmode`.
 - Keine automatisch laufenden Slider oder Karussells im Hero. Ein starkes Bild reicht.
+
+### Schriften: werden mit der Webseite ausgeliefert
+
+- **Alle Schriftdateien werden mit der Webseite deployt und von der eigenen Domain ausgeliefert.** Kein Nachladen zur Laufzeit von Google Fonts, Adobe Fonts, CDNs oder anderen fremden Servern. Grund: Beim Laden von fremden Servern wird die IP-Adresse der Besucher übertragen. Das ist ohne Einwilligung datenschutzrechtlich problematisch (vgl. LG München I, Urteil vom 20.01.2022, Az. 3 O 17493/20).
+- Umsetzung über die Astro Fonts API. Bevorzugt `fontProviders.local()` mit den Schriftdateien (`.woff2`) im Repo unter `src/assets/fonts/`. So hängt der Build nicht von fremden Servern ab, und die Auslieferung ist eindeutig.
+  - Remote-Provider wie `fontProviders.google()` laden die Dateien zwar nur beim Build herunter und liefern sie danach selbst aus, sind aber zweite Wahl.
+  - Der aktuelle Template-Stand nutzt `fontProviders.google()` in [astro.config.mjs](../astro.config.mjs) und wird umgestellt.
+- Nur Schriften mit einer Lizenz, die Web-Einbettung und Self-Hosting erlaubt, z. B. SIL Open Font License (OFL). Die Lizenzdatei kommt mit ins Repo.
+- Nur die nötigen Schnitte und Zeichensätze einbinden (z. B. latin, 2–3 Gewichte), `font-display: swap`, die Hauptschrift vorladen.
+- **Prüfung:** Im Netzwerk-Tab des Browsers darf keine Anfrage an `fonts.googleapis.com`, `fonts.gstatic.com` oder andere fremde Domains auftauchen.
+- Alte Schrift „Exotic 350 Demi Bold BT“ (Bitstream, kommerziell): wird für die Webseite nicht verwendet. Siehe offene Punkte.
+
+### Logo
+
+- Das bestehende Logo (in `Bildvorrat/neu`) wird **behutsam modernisiert** und nicht komplett neu erfunden, damit der Wiedererkennungswert bei Bestandskunden bleibt.
+- Ergebnis als **SVG** (Vektor), dazu Varianten für hellen und dunklen Hintergrund, ein quadratisches Icon (Favicon, App-Icon, Social Media) und eine einfarbige Version (Stempel, Fahrzeug, Druck).
+- Die Freigabe erfolgt durch Manuel.
+
+### Bildmaterial: Auswahl und Aufbereitung
+
+- Quelle: `Bildvorrat/alt` (alte Webseite, klein) und `Bildvorrat/neu` (rund 150 Fotos, zusammen etwa 350 MB, Einzelbilder bis 8 MB).
+- Der Ordner `Bildvorrat/` ist per `.gitignore` vom Repo ausgeschlossen, die Originale bleiben lokal.
+- **Auswahl:** Nur Bilder mit klarer Aussage, guter Schärfe und Belichtung, ohne personenbezogene Details (Namen an Klingeln, Post, Familienfotos, erkennbare Personen ohne Einwilligung). Doppelte oder sehr ähnliche Motive aussortieren.
+- **Aufbereitung vor dem Einchecken** (Skript, reproduzierbar):
+  - Längste Kante maximal **2400 px** (Hero) bzw. **1600 px** (übrige Bilder)
+  - JPEG in Qualität etwa 80, Ausrichtung gemäß EXIF korrigiert
+  - **EXIF-Metadaten entfernen**: GPS-Koordinaten könnten die Adresse der Kunden verraten
+  - Sprechende Dateinamen (`stuck-deckenprofil-altbau-schwabing.jpg` statt `IMG_8590.JPG`)
+- Die aufbereiteten Bilder liegen unter `src/assets/images/…` und werden über `astro:assets` (`<Image>`/`<Picture>`) ausgeliefert. Astro erzeugt beim Build AVIF/WebP in mehreren Größen (`srcset`).
+- Zielgröße pro ausgeliefertem Bild: unter 200 KB, Hero-Bild unter 300 KB.
 
 ## 7. Technik
 
@@ -230,7 +270,16 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
   - Reichweitenmessung höchstens cookielos und ohne personenbezogene Daten (z. B. Plausible oder Cloudflare Web Analytics), in der Datenschutzerklärung nennen
   - Karte: statisches Bild mit Link zu Google Maps/OpenStreetMap oder eine Zwei-Klick-Lösung. Kein eingebettetes iFrame, das ohne Einwilligung lädt.
   - YouTube/Vimeo, falls überhaupt: nur mit Zwei-Klick-Lösung (lite-youtube erst nach Klick)
-- **Impressum** nach § 5 DDG: vollständiger Name, Anschrift, Telefon, E-Mail, ggf. USt-IdNr., zuständige **Handwerkskammer** (HWK für München und Oberbayern), Berufsbezeichnung „Maler- und Lackierermeister“ (verliehen in Deutschland), Hinweis auf die Handwerksordnung, Angaben zur Verbraucherstreitbeilegung (§ 36 VSBG). Der Hinweis auf die EU-OS-Plattform entfällt, weil die Plattform abgeschaltet ist.
+- **Impressum** nach § 5 DDG (Stand: befüllt, siehe [impressum.md](../src/content/pages/impressum.md)):
+  - Name, Rechtsform (Einzelunternehmen), Anschrift, Telefon, E-Mail
+  - USt-IdNr. **DE 263525098**
+  - Zuständige Kammer: Handwerkskammer für München und Oberbayern
+  - Gesetzliche Berufsbezeichnung „Maler- und Lackierermeister“, verliehen in Deutschland
+  - Berufsrechtliche Regelung: Handwerksordnung mit Link auf https://www.gesetze-im-internet.de/hwo/
+  - Freiwilliger Hinweis zur Verbraucherstreitbeilegung. Pflicht ist er nach § 36 VSBG erst ab mehr als 10 Beschäftigten.
+  - Kein Handelsregister-Eintrag (Einzelunternehmen)
+  - Der Hinweis auf die EU-OS-Plattform entfällt, weil die Plattform abgeschaltet ist.
+  - **Steuernummer nicht veröffentlichen.** Sie ist keine Pflichtangabe, und eine Veröffentlichung erleichtert Missbrauch.
 - **Datenschutzerklärung** komplett neu schreiben, passend zur tatsächlichen Technik: Hosting-Anbieter, Server-Logfiles, Kontaktformular/E-Mail, ggf. Analytics, Rechte der Betroffenen. Keine Verweise mehr auf Privacy Shield.
 - **Kontaktformular:** nur die nötigsten Pflichtfelder (Name, E-Mail oder Telefon, Nachricht), Hinweis auf die Datenschutzerklärung, keine vorausgewählten Checkboxen. Optionaler Foto-Upload nur, wenn er DSGVO-konform umsetzbar ist.
 - **Fotos:**
@@ -267,16 +316,18 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 
 ## 12. Offene Punkte (beim Kunden klären)
 
-- [ ] Genaue Bezeichnung, Aussteller und Jahr des **Schimmel-Zertifikats**; darf es als Bild gezeigt werden?
+- [ ] Genaue Bezeichnung, Aussteller und Jahr des **Schimmel-Zertifikats**; darf es als Bild gezeigt werden? (bei Manuel angefragt am 24.11.2026)
+- [ ] Freigabe des modernisierten Logos durch Manuel
+- [ ] Dark Mode behalten oder entfernen? (Manuel entscheidet)
+- [ ] Umzug Netlify → IONOS: Zeitpunkt, Tarif (statisches Hosting oder Webspace), Umsetzung von Weiterleitungen und Security-Headern dort (`.htaccess` statt `_redirects`/`netlify.toml`)
 - [ ] Saschas Nachname, Rolle/Bezeichnung (Geselle?) und Einverständnis für Foto und Namen
-- [ ] **Fotoshooting** (Team und 3–5 Referenzprojekte) bzw. Freigabe der vorhandenen Bilder
-- [ ] Logo als Vektordatei (SVG); gibt es Hausfarben?
+- [ ] Freigabe der ausgewählten Bilder aus `Bildvorrat/neu` (Bildrechte, Einwilligung der abgebildeten Personen und Kunden); ggf. ergänzendes Fotoshooting für Team und Hero
+- [ ] Gibt es Hausfarben? Sonst leiten wir sie aus dem modernisierten Logo ab.
 - [ ] Bietet der Betrieb Fassade und Parkett/Laminat weiterhin an?
 - [ ] Partnerbetriebe namentlich nennen und verlinken (mit deren Zustimmung)?
 - [ ] Kundenstimmen sammeln (3–5, mit Einwilligung)
 - [ ] Erreichbarkeit/Öffnungszeiten, bevorzugter Kontaktweg (Anruf, WhatsApp, E-Mail)
-- [ ] USt-IdNr., Handwerkskammer, Rechtsform fürs Impressum
-- [ ] Hosting und Domain: wer hostet (Netlify/Cloudflare sind vorbereitet), wo liegen die E-Mails, wer betreut den DNS-Umzug?
+- [ ] Domain und E-Mail: Wo liegen Domain und Postfächer heute, wer betreut den DNS-Umzug? (MX-, SPF-, DKIM- und DMARC-Einträge vorher sichern)
 - [ ] Existiert ein Google-Unternehmensprofil?
 - [ ] Wohin gehen Formularanfragen (E-Mail-Adresse)?
 
@@ -288,3 +339,4 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 | 24.11.2026 | Sitemap auf Single-Page mit Anker-Navigation umgestellt; eigene Unterseite nur für Schimmelbekämpfung und rechtliche Seiten |
 | 24.11.2026 | Migration: Neuanfang ohne alte URL-Struktur; nur übergangsweise 301-Sammelregel für `/index.php/*` |
 | 24.11.2026 | Hauptdomain festgelegt: `www.malerbetrieb-kringelis.de`, die Domain ohne `www` leitet per 301 weiter; `base_url` angepasst |
+| 24.11.2026 | Hosting (Netlify, später IONOS), Meisterbetrieb-Botschaft, Schriften werden selbst ausgeliefert, Logo-Modernisierung, Bildaufbereitung; Dark Mode bleibt vorerst; Impressum-Daten ergänzt |
