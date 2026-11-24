@@ -172,10 +172,16 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 ### Visuelles Design
 
 - Modern, ruhig und hochwertig: viel Weißraum, große Bilder, wenig Deko. Das Handwerk soll im Vordergrund stehen, nicht die Webseite.
-- Farbpalette: zurückhaltende, warme Neutraltöne als Basis (Kalkweiß, Sand, Greige, Anthrazit) und **eine** markante Akzentfarbe für Buttons und Links (möglichst aus dem Logo ableiten). Die Farben der Projektfotos sollen wirken, die Oberfläche nimmt sich zurück.
+- Farbpalette: zurückhaltende, warme Neutraltöne als Basis (Kalkweiß, Sand, Greige, Anthrazit). Die Farben der Projektfotos sollen wirken, die Oberfläche nimmt sich zurück.
+- **Farbregeln (Entscheidung 24.11.2026):**
+  - **Haupt-Buttons in Anthrazit** (`#2B2522`, im Dark Mode hell).
+  - **Bordeaux** (`#8E1B1B`) **nur sparsam als Akzent:** Logo, kurze Linie vor den Abschnitts-Labels, Unterstrich der aktiven Navigation, Punkte im Werdegang, Akzentlinie am Schimmel-Block. Keine roten Flächen: Rot plus „Schimmel“ wirkt wie eine Warnung.
+  - **Fehlermeldungen** in eigenem, hellerem Signalrot (`#D92D20`, Theme-Farbe `error`), immer mit Symbol und Text, nie nur über die Farbe.
+- Schriftgrößen: Fließtext und kleine Texte (Vertrauensleiste, Kartenfußzeilen, Bildunterschriften) mindestens 16 px.
 - Typografie: eine gut lesbare Grotesk für Fließtext, optional eine charaktervolle Schrift für Überschriften (siehe „Schriften“ unten).
 - Fließtext mindestens 16–18 px. Die Zielgruppe ist über 30, Lesbarkeit geht vor Eleganz.
 - Mobile first. Anruf-Button auf dem Handy immer erreichbar (Sticky-Header oder schwebender Button).
+- Der Schalter für hell/dunkel sitzt im Footer, nicht im Header. Für die Zielgruppe ist er Nebensache, und so bleibt mobil im Header Platz für den Button „Anrufen“.
 - **Dark Mode bleibt vorerst erhalten.** Ob er bleibt, entscheidet Manuel. Bis dahin beide Modi gestalten und testen (Kontraste, Logo-Variante für dunklen Hintergrund). Falls er wegfällt: `npm run remove-darkmode`.
 - Keine automatisch laufenden Slider oder Karussells im Hero. Ein starkes Bild reicht.
 
@@ -330,7 +336,11 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 - [ ] Bietet der Betrieb Fassade und Parkett/Laminat weiterhin an?
 - [ ] Partnerbetriebe namentlich nennen und verlinken (mit deren Zustimmung)?
 - [ ] Kundenstimmen sammeln (3–5, mit Einwilligung)
-- [ ] Erreichbarkeit/Öffnungszeiten, bevorzugter Kontaktweg (Anruf, WhatsApp, E-Mail)
+- [ ] Erreichbarkeit bestätigen: auf der Seite steht „Mo–Fr von 7 bis 16 Uhr, sonst Rückruf“ (`contact.hours` in config.json). Bevorzugter Kontaktweg (Anruf, WhatsApp, E-Mail)?
+- [ ] **Fotos von Manuel und Sascha** (Porträt im Hochformat, gern bei der Arbeit). Auf der Seite stehen Platzhalter; Bildpfad unter `about.team` in `homepage/-index.md` eintragen.
+- [ ] **Hero-Foto:** Im Bildvorrat gibt es kein geeignetes Motiv, deshalb steht dort ein Platzhalter. Gesucht ist ein fertiger, wohnlicher Raum (ideal Altbau) oder Manuel bei der Arbeit, Querformat, mindestens 2400 px. Eintragen unter `hero.image`.
+- [ ] Bewertungen: Carsten fragt bei Manuel nach (Google-Profil, Zitate mit Einwilligung).
+- [ ] **Logo überarbeiten:** Vergleich alt/neu in [logo-entwuerfe/vergleich-alt-neu.png](logo-entwuerfe/vergleich-alt-neu.png)
 - [ ] Domain und E-Mail: Wo liegen Domain und Postfächer heute, wer betreut den DNS-Umzug? (MX-, SPF-, DKIM- und DMARC-Einträge vorher sichern)
 - [ ] Existiert ein Google-Unternehmensprofil?
 - [ ] Wohin gehen Formularanfragen (E-Mail-Adresse)? In Netlify unter „Forms → Notifications“ einrichten.
@@ -378,3 +388,4 @@ Stand 24.11.2026, Branch `dev`:
 | 24.11.2026 | Hauptdomain festgelegt: `www.malerbetrieb-kringelis.de`, die Domain ohne `www` leitet per 301 weiter; `base_url` angepasst |
 | 24.11.2026 | Hosting (Netlify, später IONOS), Meisterbetrieb-Botschaft, Schriften werden selbst ausgeliefert, Logo-Modernisierung, Bildaufbereitung; Dark Mode bleibt vorerst; Impressum-Daten ergänzt |
 | 24.11.2026 | Umsetzung: Template bereinigt, Grundgerüst, Single-Page, Schimmel-Seite, Datenschutz-Entwurf, CSP und Security-Header; Schriftwahl Fraunces und Source Sans 3 |
+| 24.11.2026 | UX-Review umgesetzt: Anthrazit-Buttons, Bordeaux nur als Akzent, Signalrot für Fehler; Hero gekürzt (ohne Schimmel), Team-Bereich mit Platzhaltern, „E-Mail oder Telefon“ im Formular, Erreichbarkeit, größere Kleintexte |
