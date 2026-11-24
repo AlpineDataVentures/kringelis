@@ -329,6 +329,7 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 - [ ] Freigabe des modernisierten Logos durch Manuel (Favorit: Variante A)
 - [ ] Originale der WhatsApp-Fotos (`IMG_8594`–`IMG_8634`) in voller Auflösung, vor allem `IMG_8596` (Blau/Gold-Wand) als Hero-Kandidat
 - [ ] Dark Mode behalten oder entfernen? (Manuel entscheidet)
+- [ ] **Datenschutzerklärung beschreibt bereits IONOS als Hoster** (Stand 24.11.2026). Bis zum Umzug ist das inhaltlich falsch: Vor dem Livegang auf Netlify entweder umziehen oder die Netlify-Fassung wiederherstellen (siehe Git-Historie von `datenschutz.md`). Für IONOS: AVV abschließen, Formular-Backend mit E-Mail-Weiterleitung bauen.
 - [ ] Umzug Netlify → IONOS: Zeitpunkt, Tarif (statisches Hosting oder Webspace), Umsetzung von Weiterleitungen und Security-Headern dort (`.htaccess` statt `_redirects`/`netlify.toml`)
 - [ ] Saschas Nachname, Rolle/Bezeichnung (Geselle?) und Einverständnis für Foto und Namen
 - [ ] Freigabe der ausgewählten Bilder aus `Bildvorrat/neu` (Bildrechte, Einwilligung der abgebildeten Personen und Kunden); ggf. ergänzendes Fotoshooting für Team und Hero

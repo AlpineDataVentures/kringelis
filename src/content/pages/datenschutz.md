@@ -8,8 +8,12 @@ draft: false
 
 <!--
   ENTWURF – vor dem Livegang prüfen lassen (keine Rechtsberatung).
-  Offene Punkte: AVV-Kette (Manuel Kringelis ↔ Betreiber des Netlify-Kontos ↔ Netlify) klären;
-  Abschnitt Hosting beim Umzug zu IONOS anpassen.
+  ACHTUNG: Diese Fassung beschreibt das Hosting bei IONOS. Sie stimmt erst NACH dem Umzug
+  von Netlify zu IONOS und darf erst dann veröffentlicht werden.
+  Offene Punkte:
+  - AVV mit IONOS abschließen (im IONOS Control Panel); Vertragspartner sollte Manuel Kringelis sein.
+  - Formular-Backend bei IONOS festlegen (Abschnitt 3 geht von Weiterleitung per E-Mail aus).
+  - Speicherdauer der Logfiles in den IONOS-Einstellungen prüfen und in Abschnitt 2 ggf. konkretisieren.
 -->
 
 <p><em>Stand: 24. November 2026</em></p>
@@ -29,7 +33,7 @@ Ein Datenschutzbeauftragter ist nicht benannt, da hierfür keine gesetzliche Pfl
 
 ### 2. Hosting und Server-Logfiles
 
-Diese Website wird bei **Netlify, Inc.** (San Francisco, USA) gehostet. Beim Aufruf der Website verarbeitet der Hoster automatisch Daten, die Ihr Browser übermittelt:
+Diese Website wird bei der **IONOS SE**, Elgendorfer Straße 57, 56410 Montabaur, Deutschland, gehostet. Beim Aufruf der Website verarbeitet der Hoster automatisch Daten, die Ihr Browser übermittelt:
 
 - IP-Adresse
 - Datum und Uhrzeit des Abrufs
@@ -39,15 +43,15 @@ Diese Website wird bei **Netlify, Inc.** (San Francisco, USA) gehostet. Beim Auf
 
 Diese Daten sind technisch erforderlich, um die Website auszuliefern und ihre Sicherheit und Stabilität zu gewährleisten (z. B. Abwehr von Angriffen). Rechtsgrundlage ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden nicht mit anderen Datenquellen zusammengeführt und nach kurzer Zeit gelöscht.
 
-Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Eine Übermittlung von Daten in die USA kann nicht ausgeschlossen werden. Sie erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) bzw. – soweit der Anbieter zertifiziert ist – des Angemessenheitsbeschlusses der EU-Kommission zum EU-U.S. Data Privacy Framework (Art. 45 DSGVO).
+Mit IONOS besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Die Daten werden in Rechenzentren in Deutschland bzw. der Europäischen Union verarbeitet; eine Übermittlung in Drittländer findet nicht statt.
 
 ### 3. Kontaktformular
 
-Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, optional Telefonnummer und Ort sowie Ihre Nachricht), um Ihre Anfrage zu bearbeiten und Ihnen ein Angebot zu machen.
+Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse und/oder Telefonnummer, optional Ort sowie Ihre Nachricht), um Ihre Anfrage zu bearbeiten und Ihnen ein Angebot zu machen.
 
 Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. – bei sonstigen Anfragen – unser berechtigtes Interesse an der Beantwortung nach Art. 6 Abs. 1 lit. f DSGVO.
 
-Die Formulardaten werden über die Formularfunktion unseres Hosters Netlify entgegengenommen und an uns weitergeleitet (siehe Abschnitt 2). Zum Schutz vor Spam setzen wir ein unsichtbares Prüffeld ein; ein Captcha-Dienst (z. B. Google reCAPTCHA) wird nicht verwendet.
+Die Formulardaten werden verschlüsselt an unseren Webserver bei IONOS übertragen (siehe Abschnitt 2) und von dort per E-Mail an uns weitergeleitet. Eine darüber hinausgehende Speicherung auf dem Webserver erfolgt nicht. Zum Schutz vor Spam setzen wir ein unsichtbares Prüffeld ein; ein Captcha-Dienst (z. B. Google reCAPTCHA) wird nicht verwendet.
 
 Wir löschen Ihre Anfrage, sobald sie abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten (etwa bei einem späteren Auftrag nach Handels- und Steuerrecht) entgegenstehen.
 
