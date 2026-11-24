@@ -5,11 +5,21 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "30",
     "logo_text": "Malerbetrieb Kringelis"
+  },
+  "contact": {
+    "company": "Malerbetrieb Manuel Kringelis",
+    "owner": "Manuel Kringelis",
+    "title": "Maler- und Lackierermeister",
+    "street": "Winzererstraße 69",
+    "zip": "80797",
+    "city": "München",
+    "district": "Schwabing",
+    "phone_display": "0170 3151138",
+    "phone_link": "+491703151138",
+    "email": "info@malerbetrieb-kringelis.de",
+    "founded": "2012",
+    "service_area": "München und Umland"
   },
   "settings": {
     "sticky_header": true,
@@ -18,22 +28,12 @@
   },
   "params": {
     "contact_form_action": "#",
-    "copyright": "Developed by [Alpine Data Ventures](https://alpinedata.de)"
-  },
-  "navigation_button": {
-    "enable": true,
-    "label": "E-Mail",
-    "link": "mailto:info@malerbetrieb-kringelis.de"
-  },
-  "navigation_button2": {
-    "enable": true,
-    "label": "Anruf",
-    "link": "tel:+491703151138"
+    "copyright": "Umsetzung: [Alpine Data Ventures](https://alpinedata.de)"
   },
   "metadata": {
     "meta_author": "Malerbetrieb Manuel Kringelis in München-Schwabing",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Professionelle Maler-, Tapezier- und Lackierarbeiten - von der Renovierung und Altbausanierung bis hin zu individuellen Spachteltechniken und Stuck"
+    "meta_description": "Meisterbetrieb für Maler- und Lackierarbeiten in München-Schwabing: Wandgestaltung, Spachteltechniken, Stuck, Altbausanierung und zertifizierte Schimmelbekämpfung."
   },
   "llms": {
     "generate_llms_txt": true,

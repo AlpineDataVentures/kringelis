@@ -7,7 +7,6 @@ import Footer from "@/partials/Footer.astro";
 import Header from "@/partials/Header.astro";
 import "@/styles/main.css";
 import { Font } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
 
 // font families - extract font names for Font component (filter out type keys)
 const fontEntries = Object.entries(theme.fonts.font_family).filter(
@@ -27,25 +26,36 @@ export interface Props {
 // destructure frontmatter
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;
+
+// canonical URL: explicit value from frontmatter, otherwise current path on the main domain
+const canonicalURL =
+  canonical ?? new URL(Astro.url.pathname, config.site.base_url).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
+    <!-- apply dark mode before first paint (no flash); preference is only kept in localStorage, no cookies -->
+    <script is:inline define:vars={{ defaultTheme: config.settings.default_theme, switcher: config.settings.theme_switcher }}>
+      try {
+        const stored = switcher ? localStorage.getItem("theme") : null;
+        const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = stored || (defaultTheme === "system" ? system : defaultTheme);
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      } catch (e) {}
+    </script>
     <!-- theme meta -->
-    <meta name="theme-name" content="astroplate" />
-    <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
       media="(prefers-color-scheme: light)"
-      content="#fff"
+      content={theme.colors.default.theme_color.body}
     />
     <meta
       name="theme-color"
       media="(prefers-color-scheme: dark)"
-      content="#000"
+      content={theme.colors.darkmode.theme_color.body}
     />
     <meta name="generator" content={Astro.generator} />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -70,7 +80,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     </title>
 
     <!-- canonical url -->
-    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+    <link rel="canonical" href={canonicalURL} />
 
     <!-- index robots -->
     <!-- for branch-deploys do NOT allow INDEXing, nor let crawler follow links -->
@@ -99,7 +109,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <ClientRouter />
 
     <!-- author from config.json -->
     <meta name="author" content={config.metadata.meta_author} />
@@ -120,10 +129,9 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
-    />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content={config.site.title} />
 
     <!-- twitter-title -->
     <meta
@@ -159,6 +167,11 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="flex flex-col min-h-screen">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-body focus:px-4 focus:py-2 focus:shadow"
+      >Zum Inhalt springen</a
+    >
     <Header />
     <main class="grow" id="main-content">
       <slot />

@@ -4,144 +4,112 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 
-export interface ChildNavigationLink {
-  name: string;
-  url: string;
-}
-
 export interface NavigationLink {
   name: string;
   url: string;
-  hasChildren?: boolean;
-  children?: ChildNavigationLink[];
 }
 
 const { main }: { main: NavigationLink[] } = menu;
-const { navigation_button, settings } = config;
-const { pathname } = Astro.url;
+const { contact, settings } = config;
 ---
 
-<header class={`header z-30 ${settings.sticky_header && "sticky top-0"}`}>
-  <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
-      <Logo />
+<header
+  class={`header z-30 ${settings.sticky_header ? "sticky top-0" : ""}`}
+  data-header
+>
+  <nav class="navbar container" aria-label="Hauptnavigation">
+    <Logo class="order-0 h-12 md:h-14" />
+
+    <!-- mobile menu toggle (CSS-only, enhanced by script below) -->
+    <input id="nav-toggle" type="checkbox" class="peer hidden" />
+
+    <div class="order-1 ml-auto flex items-center gap-3 lg:order-2 lg:ml-6">
+      <ThemeSwitcher />
+      <a
+        href={`tel:${contact.phone_link}`}
+        class="btn btn-primary btn-sm inline-flex items-center gap-2"
+        aria-label={`Anrufen: ${contact.phone_display}`}
+      >
+        <svg
+          class="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+          ><path
+            d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"
+          ></path></svg
+        >
+        <span class="hidden sm:inline">{contact.phone_display}</span>
+      </a>
+      <label
+        for="nav-toggle"
+        class="nav-toggler lg:hidden"
+        aria-label="Menü öffnen oder schließen"
+      >
+        <svg class="nav-icon-open h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+        <svg class="nav-icon-close hidden h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M4.3 2.9 10 8.6l5.7-5.7 1.4 1.4-5.7 5.7 5.7 5.7-1.4 1.4-5.7-5.7-5.7 5.7-1.4-1.4 5.7-5.7-5.7-5.7z"></path>
+        </svg>
+      </label>
     </div>
-    <!-- navbar toggler -->
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      for="nav-toggle"
-      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"
-    >
-      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
+
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full pb-6 lg:order-1 lg:flex lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8"
+      class="navbar-nav order-3 hidden w-full peer-checked:block lg:order-1 lg:ml-auto lg:flex lg:w-auto lg:gap-1"
     >
       {
-        main.map((menu) => (
-          <>
-            {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative">
-                <input
-                  type="checkbox"
-                  id={`submenu-${menu.name}`}
-                  class="peer hidden lg:hidden"
-                />
-                <label
-                  for={`submenu-${menu.name}`}
-                  class={`nav-link inline-flex items-center ${
-                    menu.children?.map(({ url }) => url).includes(pathname) ||
-                    menu.children
-                      ?.map(({ url }) => `${url}/`)
-                      .includes(pathname)
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  {menu.name}
-                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </label>
-                <ul class="nav-dropdown-list hidden peer-checked:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
-                  {menu.children?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a
-                        href={child.url}
-                        aria-label={child.name}
-                        class={`nav-dropdown-link block ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
-                          "active"
-                        }`}
-                      >
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link block ${
-                    (pathname === `${menu.url}/` || pathname === menu.url) &&
-                    "active"
-                  }`}
-                >
-                  {menu.name}
-                </a>
-              </li>
-            )}
-          </>
-        ))
-      }
-      {
-        navigation_button.enable && (
-          <li class="mt-4 inline-block lg:hidden">
-            <a
-              class="btn btn-outline-primary btn-sm"
-              href={navigation_button.link}
-              target={
-                navigation_button.link.startsWith("http") ? "_blank" : "_self"
-              }
-              rel={navigation_button.link.startsWith("http") ? "noopener" : ""}
-            >
-              {navigation_button.label}
+        main.map((item) => (
+          <li class="nav-item">
+            <a href={item.url} class="nav-link" data-nav-link>
+              {item.name}
             </a>
           </li>
-        )
+        ))
       }
     </ul>
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-      <ThemeSwitcher className="mr-5" />
-      {
-        navigation_button.enable && (
-          <a
-            class="btn btn-outline-primary btn-sm hidden lg:inline-block"
-            href={navigation_button.link}
-            target={
-              navigation_button.link.startsWith("http") ? "_blank" : "_self"
-            }
-            rel={navigation_button.link.startsWith("http") ? "noopener" : ""}
-          >
-            {navigation_button.label}
-          </a>
-        )
-      }
-    </div>
   </nav>
 </header>
+
+<script>
+  // Close the mobile menu after a link was chosen.
+  const toggle = document.getElementById("nav-toggle") as HTMLInputElement | null;
+  document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) =>
+    link.addEventListener("click", () => {
+      if (toggle) toggle.checked = false;
+    }),
+  );
+
+  // Scroll spy: highlight the menu item of the section currently in view.
+  const links = new Map<string, HTMLAnchorElement>();
+  document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
+    const hash = new URL(link.href).hash;
+    if (hash && location.pathname === "/") links.set(hash.slice(1), link);
+  });
+
+  const sections = [...links.keys()]
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (sections.length && "IntersectionObserver" in window) {
+    const setActive = (id: string | null) =>
+      links.forEach((link, key) => {
+        const active = key === id;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+
+    const visible = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => visible.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
+        const best = [...visible.entries()].sort((a, b) => b[1] - a[1])[0];
+        setActive(best && best[1] > 0 ? best[0] : null);
+      },
+      { rootMargin: "-30% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
+</script>

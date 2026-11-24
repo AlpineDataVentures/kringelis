@@ -1,73 +1,13 @@
 {
   "main": [
-    {
-      "name": "Leistungen",
-      "url": "/leistungen",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Malerarbeiten",
-          "url": "/leistungen/malerarbeiten"
-        },
-        {
-          "name": "Tapezierarbeiten",
-          "url": "/leistungen/tapezierarbeiten"
-        },
-        {
-          "name": "Lackierarbeiten",
-          "url": "/leistungen/lackierarbeiten"
-        },
-        {
-          "name": "Spachteltechniken",
-          "url": "/leistungen/spachteltechniken"
-        },
-        {
-          "name": "Dekorative Wandgestaltung",
-          "url": "/leistungen/dekorative-wandgestaltung"
-        },
-        {
-          "name": "Stuck",
-          "url": "/leistungen/stuck"
-        },
-        {
-          "name": "Parkett",
-          "url": "/leistungen/parkett"
-        }
-      ]
-    },
-    {
-      "name": "Altbausanierung",
-      "url": "/leistungen/altbausanierung"
-    },
-    {
-      "name": "Renovierung",
-      "url": "/leistungen/renovierung"
-    },
-    {
-      "name": "Referenzen",
-      "url": "/referenzen"
-    },
-    {
-      "name": "Über uns",
-      "url": "/ueber"
-    },
-    {
-      "name": "Kontakt",
-      "url": "/kontakt"
-    }
+    { "name": "Leistungen", "url": "/#leistungen" },
+    { "name": "Referenzen", "url": "/#referenzen" },
+    { "name": "Über uns", "url": "/#ueber-uns" },
+    { "name": "Ablauf", "url": "/#ablauf" },
+    { "name": "Kontakt", "url": "/#kontakt" }
   ],
   "footer": [
-    {
-      "name": "Impressum",
-      "url": "/impressum"
-    },
-    {
-      "name": "Datenschutz",
-      "url": "/datenschutz"
-    },
-    {
-      "name": "Widerrufsbelehrung",
-      "url": "/widerruf"
-    }
+    { "name": "Impressum", "url": "/impressum" },
+    { "name": "Datenschutz", "url": "/datenschutz" }
   ]
 }

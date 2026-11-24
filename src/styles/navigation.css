@@ -1,5 +1,5 @@
 .header {
-  @apply bg-body dark:bg-darkmode-body py-6;
+  @apply bg-body/95 dark:bg-darkmode-body/95 border-b border-border dark:border-darkmode-border py-3 backdrop-blur supports-[backdrop-filter]:bg-body/85 dark:supports-[backdrop-filter]:bg-darkmode-body/85;
 }
 
 /* navbar items */
@@ -8,38 +8,34 @@
 }
 
 .navbar-brand {
-  @apply text-text-dark dark:text-darkmode-text-dark text-xl font-semibold;
-  image {
-    @apply max-h-full max-w-full;
-  }
+  @apply text-text-dark dark:text-darkmode-text-dark;
 }
 
 .navbar-nav {
-  @apply text-center lg:text-left;
+  @apply pt-4 pb-2 text-center lg:p-0 lg:text-left;
 }
 
 .nav-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-semibold transition lg:px-2 lg:py-3;
+  @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary relative block px-3 py-3 font-semibold transition-colors lg:py-2;
 }
 
-.nav-dropdown {
-  @apply mr-0;
+/* active section (scroll spy): small brush-like underline */
+.nav-link.active {
+  @apply text-primary dark:text-darkmode-primary;
+}
+.nav-link.active::after {
+  @apply bg-primary dark:bg-darkmode-primary absolute right-3 bottom-1 left-3 h-0.5 rounded-full content-[''] lg:bottom-0;
 }
 
-.nav-dropdown > svg {
-  @apply pointer-events-none;
+.nav-toggler {
+  @apply text-text-dark dark:text-darkmode-text-dark flex cursor-pointer items-center rounded p-2;
 }
 
-.nav-dropdown-list {
-  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm;
+#nav-toggle:checked ~ div .nav-icon-open {
+  @apply hidden;
 }
-
-.nav-dropdown-item {
-  @apply [&:not(:last-child)]:mb-2;
-}
-
-.nav-dropdown-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
+#nav-toggle:checked ~ div .nav-icon-close {
+  @apply block;
 }
 
 /* theme-switcher */
@@ -47,7 +43,7 @@
   @apply inline-flex;
 
   label {
-    @apply bg-border relative inline-block h-4 w-6 cursor-pointer rounded-2xl lg:w-10;
+    @apply bg-border dark:bg-darkmode-border relative inline-block h-4 w-10 cursor-pointer rounded-2xl;
   }
 
   input {
@@ -60,7 +56,11 @@
 
   input:checked + label {
     span {
-      @apply lg:left-4;
+      @apply left-4;
     }
+  }
+
+  input:focus-visible + label {
+    @apply outline-primary dark:outline-darkmode-primary outline-2 outline-offset-2;
   }
 }

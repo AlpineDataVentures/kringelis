@@ -12,6 +12,16 @@
   @apply mx-auto xl:!max-w-[1320px] px-4;
 }
 
+/* footer links */
+.footer-link {
+  @apply underline-offset-4 transition-colors hover:text-primary hover:underline dark:hover:text-darkmode-primary;
+}
+
+/* small uppercase label above section headings */
+.eyebrow {
+  @apply mb-3 block text-sm font-semibold tracking-[0.2em] text-primary uppercase dark:text-darkmode-primary;
+}
+
 /* social icons */
 .social-icons {
   @apply space-x-4;

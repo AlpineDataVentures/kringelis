@@ -6,35 +6,67 @@ import menu from "@/config/menu.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
 
-const { footer }: { footer: { name: string; url: string }[] } = menu;
+const { footer, main }: { footer: { name: string; url: string }[]; main: { name: string; url: string }[] } = menu;
+const { contact } = config;
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-light dark:bg-darkmode-light">
+<footer class="bg-light dark:bg-darkmode-light border-t border-border dark:border-darkmode-border">
   <div class="container">
-    <div class="row items-center py-10">
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
-        <Logo />
+    <div class="row py-14">
+      <div class="mb-10 md:col-6 lg:col-5 lg:mb-0">
+        <Logo class="h-14" />
+        <p class="mt-4 max-w-sm text-text-light dark:text-darkmode-text-light">
+          Meisterbetrieb für Maler- und Lackierarbeiten in {contact.city}-{contact.district}
+          und Umgebung. Seit {contact.founded}.
+        </p>
       </div>
-      <div class="mb-8 text-center lg:col-6 lg:mb-0">
-        <ul>
+
+      <div class="mb-10 md:col-6 lg:col-4 lg:mb-0">
+        <h2 class="h6 mb-4">Kontakt</h2>
+        <address class="not-italic leading-8">
+          {contact.company}<br />
+          {contact.street}<br />
+          {contact.zip} {contact.city}<br />
+          <a class="footer-link" href={`tel:${contact.phone_link}`}>Telefon {contact.phone_display}</a><br />
+          <a class="footer-link" href={`mailto:${contact.email}`}>{contact.email}</a>
+        </address>
+      </div>
+
+      <div class="lg:col-3">
+        <h2 class="h6 mb-4">Navigation</h2>
+        <ul class="leading-8">
           {
-            footer.map((menu) => (
-              <li class="m-3 inline-block">
-                <a href={menu.url}>{menu.name}</a>
+            main.map((item) => (
+              <li>
+                <a class="footer-link" href={item.url}>{item.name}</a>
               </li>
             ))
           }
         </ul>
       </div>
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-        <Social source={social.main} className="social-icons" />
-      </div>
     </div>
+    {
+      social.main.length > 0 && (
+        <div class="pb-8">
+          <Social source={social.main} className="social-icons" />
+        </div>
+      )
+    }
   </div>
-  <div class="border-t border-border py-7 dark:border-darkmode-border">
-    <div
-      class="container text-center text-text-light dark:text-darkmode-text-light"
-    >
+
+  <div class="border-t border-border py-6 dark:border-darkmode-border">
+    <div class="container flex flex-col items-center justify-between gap-3 text-sm text-text-light md:flex-row dark:text-darkmode-text-light">
+      <p>© {year} {contact.company}</p>
+      <ul class="flex gap-6">
+        {
+          footer.map((item) => (
+            <li>
+              <a class="footer-link" href={item.url}>{item.name}</a>
+            </li>
+          ))
+        }
+      </ul>
       <p set:html={markdownify(config.params.copyright)} />
     </div>
   </div>
