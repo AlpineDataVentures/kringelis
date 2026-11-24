@@ -1,5 +1,22 @@
+/* Readable base size for an audience 30+: 17px mobile, 18px desktop */
 html {
-  @apply text-base-sm md:text-base;
+  @apply text-[17px] md:text-base;
+}
+
+/* Smooth anchor scrolling only for users who did not ask for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Anchor targets must not hide behind the sticky header */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary dark:outline-darkmode-primary;
 }
 
 body {
@@ -12,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-secondary font-bold leading-tight text-text-dark dark:text-darkmode-text-dark;
+  @apply font-secondary font-semibold leading-tight text-text-dark dark:text-darkmode-text-dark;
 }
 
 h1,
