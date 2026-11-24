@@ -42,7 +42,7 @@ Schimmel in Innenräumen sollte immer ernst genommen und zügig beseitigt werden
 Rufen Sie uns an – wir vereinbaren zeitnah einen Termin zur Begutachtung.
 
 <div class="not-prose mt-12 rounded-2xl bg-light p-8 dark:bg-darkmode-light">
-  <p class="h4 mb-2">Schimmel entdeckt?</p>
+  <p class="h4 mb-2 font-secondary font-semibold text-text-dark dark:text-darkmode-text-dark">Schimmel entdeckt?</p>
   <p class="mb-6">Wir sehen uns das an und sagen Ihnen ehrlich, was zu tun ist.</p>
   <a class="btn btn-primary mr-3 mb-3" href="tel:+491703151138">Anrufen: 0170 3151138</a>
   <a class="btn btn-outline-primary mb-3" href="/#kontakt">Anfrage senden</a>
