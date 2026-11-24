@@ -26,7 +26,6 @@
     "@justinribeiro/lite-youtube": "^1.9.0",
     "astro": "7.4.13",
     "astro-auto-import": "^0.6.0",
-    "astro-swiper": "^2.11.0",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^18.3.0",

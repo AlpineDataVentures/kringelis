@@ -1,0 +1,57 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  data: {
+    eyebrow: string;
+    title: string;
+    intro?: string;
+    content: string;
+    values: { title: string; text: string }[];
+    timeline: { year: string; text: string }[];
+    partners: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<section id="ueber-uns" class="section" aria-labelledby="ueber-uns-title">
+  <div class="container grid gap-12 lg:grid-cols-12">
+    <div class="lg:col-span-7">
+      <SectionHeading id="ueber-uns" eyebrow={data.eyebrow} title={data.title} intro={data.intro} />
+      <div class="content text-lg" set:html={markdownify(data.content, true)} />
+
+      <ul class="mt-10 grid gap-6 sm:grid-cols-3">
+        {
+          data.values.map((v) => (
+            <li class="rounded-xl bg-light p-5 dark:bg-darkmode-light">
+              <p class="font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-dark">{v.title}</p>
+              <p class="mt-1 text-sm">{v.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="mt-8">{data.partners}</p>
+    </div>
+
+    <aside class="lg:col-span-5" aria-label="Werdegang">
+      <div class="rounded-2xl border border-border p-8 dark:border-darkmode-border">
+        <h3 class="h4 mb-6">Werdegang</h3>
+        <ol class="relative border-l-2 border-border dark:border-darkmode-border">
+          {
+            data.timeline.map((t) => (
+              <li class="mb-7 ml-6 last:mb-0">
+                <span class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-body bg-primary dark:border-darkmode-body dark:bg-darkmode-primary" />
+                <p class="font-secondary text-lg font-semibold text-primary dark:text-darkmode-primary">{t.year}</p>
+                <p>{t.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>

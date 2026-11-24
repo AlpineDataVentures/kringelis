@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, meta_title, description, image } = page.data;
+const { title, meta_title, description, image, noindex, canonical } = page.data;
 const { Content } = await render(page);
 ---
 
@@ -29,6 +29,8 @@ const { Content } = await render(page);
   meta_title={meta_title}
   description={description}
   image={image}
+  noindex={noindex}
+  canonical={canonical}
 >
   <PageHeader title={title} />
   <section class="section-sm">

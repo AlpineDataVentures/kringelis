@@ -4,9 +4,9 @@
 
 /* form style */
 @utility form-input {
-  @apply w-full rounded border-transparent bg-light px-6 py-4 text-text-dark placeholder:text-text-light focus:border-primary dark:focus:border-darkmode-primary focus:ring-transparent dark:border-darkmode-border dark:bg-darkmode-light dark:text-darkmode-text-light;
+  @apply w-full rounded-md border border-border bg-body px-4 py-3 text-text-dark placeholder:text-text-light focus:border-primary focus:ring-1 focus:ring-primary dark:border-darkmode-border dark:bg-darkmode-body dark:text-darkmode-text-dark dark:focus:border-darkmode-primary dark:focus:ring-darkmode-primary;
 }
 
 @utility form-label {
-  @apply mb-4 block font-secondary text-xl font-normal text-text-dark dark:text-darkmode-text-light;
+  @apply mb-2 block font-semibold text-text-dark dark:text-darkmode-text-dark;
 }

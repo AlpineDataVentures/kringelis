@@ -22,6 +22,20 @@
   @apply mb-3 block text-sm font-semibold tracking-[0.2em] text-primary uppercase dark:text-darkmode-primary;
 }
 
+/* contact cards (contact section) */
+.contact-card {
+  @apply flex flex-col rounded-xl border border-border px-5 py-4 transition-colors dark:border-darkmode-border;
+}
+a.contact-card {
+  @apply hover:border-primary dark:hover:border-darkmode-primary;
+}
+.contact-card-label {
+  @apply text-sm font-semibold tracking-wide text-text-light uppercase dark:text-darkmode-text-light;
+}
+.contact-card-value {
+  @apply font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-dark;
+}
+
 /* social icons */
 .social-icons {
   @apply space-x-4;

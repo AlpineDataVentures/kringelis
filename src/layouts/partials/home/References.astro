@@ -1,0 +1,88 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  data: {
+    eyebrow: string;
+    title: string;
+    intro?: string;
+    before_after: {
+      title: string;
+      text: string;
+      before: string;
+      before_alt: string;
+      after: string;
+      after_alt: string;
+    };
+    gallery: { image: string; alt: string; caption: string }[];
+  };
+}
+
+const { data } = Astro.props;
+const ba = data.before_after;
+const pair = [
+  { label: "Vorher", src: ba.before, alt: ba.before_alt },
+  { label: "Nachher", src: ba.after, alt: ba.after_alt },
+];
+---
+
+<section id="referenzen" class="section bg-light dark:bg-darkmode-light" aria-labelledby="referenzen-title">
+  <div class="container">
+    <SectionHeading id="referenzen" eyebrow={data.eyebrow} title={data.title} intro={data.intro} />
+
+    <div class="mb-16 grid items-center gap-8 lg:grid-cols-12">
+      <div class="grid grid-cols-2 gap-3 lg:col-span-8">
+        {
+          pair.map((p) => (
+            <figure class="relative overflow-hidden rounded-2xl">
+              <ImageMod
+                src={p.src}
+                alt={p.alt}
+                width={800}
+                height={600}
+                widths={[400, 600, 800]}
+                sizes="(min-width: 1024px) 33vw, 50vw"
+                fit="cover"
+                loading="lazy"
+                class="aspect-[4/3] w-full object-cover"
+              />
+              <figcaption class="absolute top-3 left-3 rounded-full bg-body/90 px-3 py-1 text-sm font-semibold text-text-dark dark:bg-darkmode-body/90 dark:text-darkmode-text-dark">
+                {p.label}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+      <div class="lg:col-span-4">
+        <h3 class="h4 mb-3">{ba.title}</h3>
+        <p>{ba.text}</p>
+      </div>
+    </div>
+
+    <ul class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      {
+        data.gallery.map((item) => (
+          <li>
+            <figure class="group relative overflow-hidden rounded-xl">
+              <ImageMod
+                src={item.image}
+                alt={item.alt}
+                width={600}
+                height={600}
+                widths={[300, 450, 600]}
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                fit="cover"
+                loading="lazy"
+                class="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <figcaption class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent px-3 pt-8 pb-3 text-sm font-semibold text-white">
+                {item.caption}
+              </figcaption>
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

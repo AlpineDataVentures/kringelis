@@ -1,0 +1,26 @@
+---
+interface Props {
+  items: { title: string; text: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<section aria-label="Das zeichnet uns aus" class="border-y border-border bg-light dark:border-darkmode-border dark:bg-darkmode-light">
+  <div class="container">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-8 py-10 lg:grid-cols-4">
+      {
+        items.map((item) => (
+          <div class="border-l-2 border-primary pl-4 dark:border-darkmode-primary">
+            <dt class="font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-dark">
+              {item.title}
+            </dt>
+            <dd class="mt-1 text-sm leading-snug text-text-light dark:text-darkmode-text-light">
+              {item.text}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
