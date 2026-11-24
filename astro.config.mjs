@@ -73,7 +73,8 @@ export default defineConfig({
 
   integrations: [
     react(),
-    sitemap(),
+    // the thank-you page after the contact form is noindex and not part of the sitemap
+    sitemap({ filter: (page) => !page.includes("/danke") }),
     AutoImport({
       imports: [
         "@/shortcodes/Button",

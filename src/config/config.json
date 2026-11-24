@@ -4,7 +4,7 @@
     "base_url": "https://www.malerbetrieb-kringelis.de",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
+    "favicon": "/favicon.svg",
     "logo_text": "Malerbetrieb Kringelis"
   },
   "contact": {
@@ -32,7 +32,7 @@
   },
   "metadata": {
     "meta_author": "Malerbetrieb Manuel Kringelis in München-Schwabing",
-    "meta_image": "/images/og-image.png",
+    "meta_image": "/images/og-image.jpg",
     "meta_description": "Meisterbetrieb für Maler- und Lackierarbeiten in München-Schwabing: Wandgestaltung, Spachteltechniken, Stuck, Altbausanierung und zertifizierte Schimmelbekämpfung."
   },
   "llms": {

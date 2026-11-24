@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /api/*
+Sitemap: https://www.malerbetrieb-kringelis.de/sitemap-index.xml
