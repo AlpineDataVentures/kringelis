@@ -1,0 +1,50 @@
+{
+  "$comment": "Auswahl aus Bildvorrat/ (lokal, nicht im Repo). Verarbeitung: node scripts/prepareImages.js. Siehe docs/BILDAUSWAHL.md",
+  "sourceDir": "Bildvorrat/neu",
+  "targetDir": "public/images/projekte",
+  "maxEdge": { "hero": 2400, "default": 1600 },
+  "quality": 80,
+  "images": [
+    { "src": "IMG_8596.JPG", "out": "wandgestaltung/effektwand-blau-gold-wohnzimmer.jpg", "size": "hero", "alt": "Effektwand in Blau und Gold mit Spachteltechnik in einem Wohnzimmer" },
+    { "src": "IMG_9320.JPG", "out": "wandgestaltung/effekttechnik-kupfer-blau-detail.jpg", "size": "hero", "alt": "Nahaufnahme einer Effekttechnik in Kupfer- und Blautönen" },
+    { "src": "IMG_9321.JPG", "out": "wandgestaltung/effekttechnik-kupfer-detail.jpg", "size": "hero", "alt": "Detail einer kupferfarbenen Effektwand im Streiflicht" },
+    { "src": "IMG_2715.JPG", "out": "wandgestaltung/marmoroptik-blau-gold.jpg", "alt": "Wandfläche in Marmoroptik mit Blau- und Goldtönen" },
+    { "src": "IMG_8609.JPG", "out": "wandgestaltung/spachteltechnik-bronze-flur.jpg", "alt": "Spachteltechnik in Bronze an einer Flurwand" },
+    { "src": "IMG_8619.JPG", "out": "wandgestaltung/silberstruktur-flur.jpg", "alt": "Silbern schimmernde Strukturwand in einem Flur" },
+    { "src": "IMG_8620.JPG", "out": "wandgestaltung/silberstruktur-flur-detail.jpg", "alt": "Detail einer silbernen Strukturwand mit Lichtreflexen" },
+    { "src": "IMG_7828.jpeg", "out": "wandgestaltung/spachteltechnik-silber-eingangsbereich.jpg", "alt": "Spachteltechnik in Silber im Eingangsbereich einer Wohnung" },
+    { "src": "IMG_8615.JPG", "out": "wandgestaltung/effektwand-grau-schlafzimmer.jpg", "alt": "Glänzende Effektwand in Grau hinter einem Bett" },
+    { "src": "IMG_8601.JPG", "out": "wandgestaltung/wandlasur-ocker-gold.jpg", "alt": "Wand in warmer Ocker- und Goldlasur" },
+    { "src": "PHOTO-2020-01-19-12-26-28.jpg", "out": "wandgestaltung/spachteltechnik-violett.jpg", "alt": "Spachteltechnik in Violett- und Blautönen an einer Wohnzimmerwand" },
+    { "src": "DSCN0487.JPG", "out": "wandgestaltung/effektbeschichtung-wohnzimmer.jpg", "alt": "Effektbeschichtung in Gold-Grün an einer Wohnzimmerwand mit Kronleuchter" },
+    { "src": "IMG_8603.JPG", "out": "wandgestaltung/spachteldecke-bad.jpg", "alt": "Gespachtelte Decke in Grau in einem modernen Bad" },
+
+    { "src": "IMG_8599.JPG", "out": "material/musterplatte-gold.jpg", "alt": "Musterplatte mit goldener Effekttechnik" },
+    { "src": "IMG_8600.JPG", "out": "material/musterplatte-ocker.jpg", "alt": "Musterplatte mit ockerfarbener Spachteltechnik" },
+
+    { "src": "IMG_8597.JPG", "out": "farbe/wandfarbe-beere-altbau.jpg", "alt": "Wand in Beerenton mit weißer Stuckleiste und Altbaufenster" },
+    { "src": "IMG_8608.JPG", "out": "farbe/wandfarbe-rose-wohnzimmer.jpg", "alt": "Wohnzimmerwand in Rosé mit leichter Struktur" },
+    { "src": "IMG_0104 (2).JPG", "out": "farbe/wandfarbe-orange-wohnzimmer.jpg", "alt": "Wohnzimmer mit orangefarbener Akzentwand" },
+    { "src": "IMG_8606.JPG", "out": "farbe/flur-hellblau.jpg", "alt": "Flur in Hellblau mit Holzboden und Rundbogen" },
+    { "src": "IMG_8607.JPG", "out": "farbe/bad-blau.jpg", "alt": "Badezimmer mit blau gestrichener Wand über weißen Fliesen" },
+    { "src": "IMG_8637.JPG", "out": "farbe/zimmer-frisch-gestrichen.jpg", "alt": "Frisch gestrichenes, leeres Zimmer in Hellgrau" },
+
+    { "src": "IMG_8590.JPG", "out": "stuck/stuckrosette-deckenprofil.jpg", "size": "hero", "alt": "Weiße Stuckrosette und Deckenprofil an einer Zimmerdecke" },
+    { "src": "IMG_8591.JPG", "out": "stuck/deckenprofil-weiss.jpg", "alt": "Weißes Deckenprofil im Übergang von Wand und Decke" },
+    { "src": "IMG_8605.JPG", "out": "stuck/stuckleiste-graue-wand.jpg", "alt": "Weiße Stuckleiste über einer grau gestrichenen Wand" },
+    { "src": "DSC02615.JPG", "out": "stuck/deckenoval-tuerkis-stuckrahmen.jpg", "alt": "Türkis gestaltetes Deckenoval mit Stuckrahmen und Kronleuchter" },
+    { "src": "DSC02563.JPG", "out": "stuck/deckenprofil-kalkpresstechnik.jpg", "alt": "Deckenprofil über einer Wand in Kalkpresstechnik" },
+
+    { "src": "IMG_1116.JPG", "out": "tapete/wandbild-bergsee.jpg", "alt": "Großformatiges Wandbild mit Bergsee-Motiv" },
+    { "src": "IMG_8930.JPG", "out": "tapete/fototapete-wasserfall.jpg", "alt": "Fototapete mit Wasserfall-Motiv über einem Sofa" },
+    { "src": "DSCN1148.JPG", "out": "tapete/wandmotiv-billard.jpg", "alt": "Gemaltes Wandmotiv mit Billardkugeln in einem Billardzimmer" },
+
+    { "src": "PHOTO-2020-01-19-12-26-24.jpg", "out": "referenzen/violett-vorher.jpg", "alt": "Vorher: gespachtelter, grau grundierter Untergrund" },
+    { "src": "PHOTO-2020-01-19-12-26-27.jpg", "out": "referenzen/violett-nachher.jpg", "alt": "Nachher: fertige Spachteltechnik in Violett- und Blautönen" },
+
+    { "src": "IMG_9310.JPG", "out": "ablauf/abdecken-effektwand.jpg", "alt": "Sorgfältig mit Folie abgedeckte Möbel vor einer neu gestalteten Effektwand" },
+    { "src": "IMG_8613.JPG", "out": "ablauf/abdecken-kupferwand.jpg", "alt": "Abgedecktes Bett vor einer frisch gestalteten Kupferwand" },
+
+    { "src": "DSCN0381.JPG", "out": "aussen/gartenhaus-rot-weiss.jpg", "alt": "Gartenhaus mit rotem Anstrich und weißen Fenstern" }
+  ]
+}
