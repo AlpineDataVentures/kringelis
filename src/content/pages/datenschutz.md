@@ -8,9 +8,8 @@ draft: false
 
 <!--
   ENTWURF – vor dem Livegang prüfen lassen (keine Rechtsberatung).
-  ACHTUNG: Diese Fassung beschreibt das Hosting bei IONOS. Sie stimmt erst NACH dem Umzug
-  von Netlify zu IONOS und darf erst dann veröffentlicht werden.
-  Offene Punkte:
+  Livebetrieb erfolgt bei IONOS (Netlify dient nur als Vorschau während der Entwicklung).
+  Offene Punkte vor dem Livegang:
   - AVV mit IONOS abschließen (im IONOS Control Panel); Vertragspartner sollte Manuel Kringelis sein.
   - Formular-Backend bei IONOS festlegen (Abschnitt 3 geht von Weiterleitung per E-Mail aus).
   - Speicherdauer der Logfiles in den IONOS-Einstellungen prüfen und in Abschnitt 2 ggf. konkretisieren.
