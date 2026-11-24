@@ -51,7 +51,7 @@ const { data } = Astro.props;
             <div class="flex grow flex-col p-6">
               <h3 class="h4 mb-3">{item.title}</h3>
               <p class="mb-4">{item.text}</p>
-              <p class="mt-auto border-t border-border pt-4 text-sm text-text-light dark:border-darkmode-border dark:text-darkmode-text-light">
+              <p class="mt-auto border-t border-border pt-4 text-text-light dark:border-darkmode-border dark:text-darkmode-text-light">
                 <span class="font-semibold text-text-dark dark:text-darkmode-text-dark">So gehen wir vor: </span>
                 {item.detail}
               </p>
@@ -61,15 +61,13 @@ const { data } = Astro.props;
       }
     </div>
 
-    <div class="mt-12 grid items-center gap-6 rounded-2xl bg-primary p-8 text-white md:grid-cols-[1fr_auto] md:p-12 dark:bg-darkmode-light dark:ring-1 dark:ring-darkmode-primary">
+    <div class="mt-12 grid items-center gap-6 rounded-2xl border-l-[6px] border-primary bg-cream/60 p-8 md:grid-cols-[1fr_auto] md:p-12 dark:border-darkmode-primary dark:bg-darkmode-light">
       <div>
-        <span class="mb-2 block text-sm font-semibold tracking-[0.2em] text-cream uppercase">
-          {data.highlight.eyebrow}
-        </span>
-        <h3 class="h3 mb-3 text-white">{data.highlight.title}</h3>
-        <p class="max-w-2xl text-white/90 dark:text-darkmode-text">{data.highlight.text}</p>
+        <span class="eyebrow">{data.highlight.eyebrow}</span>
+        <h3 class="h3 mb-3">{data.highlight.title}</h3>
+        <p class="max-w-2xl">{data.highlight.text}</p>
       </div>
-      <a href={data.highlight.link} class="btn btn-light whitespace-nowrap">
+      <a href={data.highlight.link} class="btn btn-primary whitespace-nowrap">
         {data.highlight.link_label}
       </a>
     </div>

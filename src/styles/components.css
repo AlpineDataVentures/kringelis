@@ -19,7 +19,11 @@
 
 /* small uppercase label above section headings */
 .eyebrow {
-  @apply mb-3 block text-sm font-semibold tracking-[0.2em] text-primary uppercase dark:text-darkmode-primary;
+  @apply mb-3 flex items-center gap-3 text-sm font-semibold tracking-[0.2em] text-text-light uppercase dark:text-darkmode-text-light;
+}
+/* short bordeaux brush line: the accent color is used sparingly */
+.eyebrow::before {
+  @apply h-0.5 w-8 flex-none rounded-full bg-primary content-[''] dark:bg-darkmode-primary;
 }
 
 /* contact cards (contact section) */
@@ -27,13 +31,29 @@
   @apply flex flex-col rounded-xl border border-border px-5 py-4 transition-colors dark:border-darkmode-border;
 }
 a.contact-card {
-  @apply hover:border-primary dark:hover:border-darkmode-primary;
+  @apply hover:border-dark dark:hover:border-darkmode-dark;
 }
 .contact-card-label {
   @apply text-sm font-semibold tracking-wide text-text-light uppercase dark:text-darkmode-text-light;
 }
 .contact-card-value {
   @apply font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-dark;
+}
+
+/* form validation: own signal red (not the brand bordeaux) plus icon */
+.form-error {
+  @apply mt-2 flex items-start gap-2 font-semibold text-error dark:text-darkmode-error;
+}
+.form-error svg {
+  @apply mt-0.5 h-5 w-5 flex-none;
+}
+.form-input[aria-invalid="true"] {
+  @apply border-error ring-1 ring-error dark:border-darkmode-error dark:ring-darkmode-error;
+}
+
+/* image placeholder (until real photos are delivered) */
+.placeholder-img {
+  @apply flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-text-light/40 bg-light p-6 text-center text-text-light dark:border-darkmode-text-light/40 dark:bg-darkmode-light dark:text-darkmode-text-light;
 }
 
 /* social icons */

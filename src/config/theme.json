@@ -10,7 +10,8 @@
         "light": "#F5F0EA",
         "dark": "#2B2522",
         "cream": "#E9D9C3",
-        "steel": "#B9B2AA"
+        "steel": "#B9B2AA",
+        "error": "#D92D20"
       },
       "text_color": {
         "text": "#4A423D",
@@ -28,7 +29,8 @@
         "light": "#262120",
         "dark": "#F5F0EA",
         "cream": "#E9D9C3",
-        "steel": "#B9B2AA"
+        "steel": "#B9B2AA",
+        "error": "#F97066"
       },
       "text_color": {
         "text": "#CFC6BE",

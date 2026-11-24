@@ -16,12 +16,12 @@
 }
 
 .nav-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary relative block px-3 py-3 font-semibold transition-colors lg:py-2;
+  @apply text-text-dark hover:text-text-light dark:text-darkmode-text-dark dark:hover:text-darkmode-text-light relative block px-3 py-3 font-semibold transition-colors lg:py-2;
 }
 
 /* active section (scroll spy): small brush-like underline */
 .nav-link.active {
-  @apply text-primary dark:text-darkmode-primary;
+  @apply text-text-dark dark:text-darkmode-text-dark;
 }
 .nav-link.active::after {
   @apply bg-primary dark:bg-darkmode-primary absolute right-3 bottom-1 left-3 h-0.5 rounded-full content-[''] lg:bottom-0;
@@ -61,6 +61,6 @@
   }
 
   input:focus-visible + label {
-    @apply outline-primary dark:outline-darkmode-primary outline-2 outline-offset-2;
+    @apply outline-dark dark:outline-darkmode-dark outline-2 outline-offset-2;
   }
 }
