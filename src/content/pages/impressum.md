@@ -9,41 +9,42 @@ draft: false
 
 #### Angaben gemäß § 5 DDG
 <p>
-  Malerbetrieb Kringelis<br>
-  Inhaber: Manuel Kringelis <br>
-  Winzererstraße 69<br> 
-  80797 München<br>  
+  Malerbetrieb Manuel Kringelis<br>
+  Inhaber: Manuel Kringelis<br>
+  Winzererstraße 69<br>
+  80797 München<br>
+  Rechtsform: Einzelunternehmen
 </p>
 
 #### Kontakt
 <p>
-Telefon: +49 170 3151138<br>
-E-Mail: <a href="mailto:info@malerbetrieb-kringelis.de">info@malerbetrieb-kringelis.de</a> <br>
+Telefon: <a href="tel:+491703151138">+49 170 3151138</a><br>
+E-Mail: <a href="mailto:info@malerbetrieb-kringelis.de">info@malerbetrieb-kringelis.de</a><br>
 Internet: <a href="https://www.malerbetrieb-kringelis.de">https://www.malerbetrieb-kringelis.de</a>
 </p>
 
-#### Weitere Angaben
+#### Berufsrechtliche Angaben
 <p>
-Berufsbezeichnung: Maler- und Lackierermeister<br>
+Gesetzliche Berufsbezeichnung: Maler- und Lackierermeister<br>
 Verliehen in: Deutschland<br>
-Zuständige Handwerkskammer: Handwerkskammer für München und Oberbayern <br>
-Rechtsform: Einzelunternehmen<br>   
-Berufsrechtliche Regelungen: Handwerksordnung (HwO) [Link]?? 
+Zuständige Kammer: Handwerkskammer für München und Oberbayern, Max-Joseph-Straße 4, 80333 München, <a href="https://www.hwk-muenchen.de" rel="noopener">www.hwk-muenchen.de</a><br>
+Eingetragen in die Handwerksrolle der Handwerkskammer für München und Oberbayern<br>
+Berufsrechtliche Regelungen: Gesetz zur Ordnung des Handwerks (Handwerksordnung – HwO), abrufbar unter <a href="https://www.gesetze-im-internet.de/hwo/" rel="noopener">www.gesetze-im-internet.de/hwo</a>
 </p>
 
-#### Handelsregister 
+#### Umsatzsteuer-Identifikationsnummer
 <p>
-  ???<br>
-</p>
-
-#### Umsatzsteueridentifikationsnummer gemäß § 27a Umsatzsteuergesetz   
-<p>
- ??<br>
+Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE 263525098
 </p>
 
 #### Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV
 <p>
   Manuel Kringelis<br>
-  Winzererstraße 69<br> 
-  80797 München<br>
+  Winzererstraße 69<br>
+  80797 München
+</p>
+
+#### Verbraucherstreitbeilegung
+<p>
+Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
 </p>
