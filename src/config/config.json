@@ -12,13 +12,9 @@
     "logo_text": "Malerbetrieb Kringelis"
   },
   "settings": {
-    "search": false,
     "sticky_header": true,
     "theme_switcher": true,
-    "default_theme": "system",
-    "pagination": 2,
-    "summary_length": 200,
-    "blog_folder": "blog"
+    "default_theme": "system"
   },
   "announcement": {
     "enable": true,
