@@ -1,7 +1,9 @@
 # Bildauswahl – Vorschlag
 
 > Arbeitsgrundlage für die Auswahl aus `Bildvorrat/` (lokal, nicht im Repo).
-> Status: **Vorschlag, Freigabe durch Carsten bzw. Manuel ausstehend.** Nach der Freigabe werden die Bilder per Skript skaliert, von Metadaten befreit, umbenannt und nach `src/assets/images/` übernommen (Regeln siehe [ANFORDERUNGEN.md](ANFORDERUNGEN.md), Abschnitt 6).
+> Status (24.11.2026): **Auswahl umgesetzt.** 34 Bilder wurden mit `node scripts/prepareImages.js` skaliert, von Metadaten befreit, umbenannt und nach `public/images/projekte/` übernommen. Die Liste mit Alt-Texten steht in [scripts/bildauswahl.json](../scripts/bildauswahl.json). Die endgültige Freigabe durch Manuel steht noch aus (Regeln siehe [ANFORDERUNGEN.md](ANFORDERUNGEN.md), Abschnitt 6).
+>
+> **Achtung, geringe Auflösung:** Diese Bilder liegen nur als WhatsApp-Kopie mit 768–1024 px vor und taugen für Kacheln und Galerie, aber **nicht für den Hero**: `effektwand-blau-gold-wohnzimmer` (`IMG_8596`), `spachteltechnik-bronze-flur`, `wandlasur-ocker-gold`, `spachteldecke-bad`, `musterplatte-gold`/`-ocker`, `wandfarbe-beere-altbau`, `wandfarbe-rose-wohnzimmer`, `flur-hellblau`, `bad-blau`, `stuckleiste-graue-wand`, `abdecken-kupferwand`. **Bei Manuel die Originale anfragen**, vor allem für `IMG_8596`. In voller Auflösung vorhanden und damit hero-tauglich: `effekttechnik-kupfer-blau-detail`, `effekttechnik-kupfer-detail` (Hochformat, 2400 px) und `stuckrosette-deckenprofil` (2400 px).
 
 ## Bestand (Stand 24.11.2026)
 

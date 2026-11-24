@@ -195,18 +195,20 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 - Das bestehende Logo (in `Bildvorrat/neu`) wird **behutsam modernisiert** und nicht komplett neu erfunden, damit der Wiedererkennungswert bei Bestandskunden bleibt.
 - Ergebnis als **SVG** (Vektor), dazu Varianten für hellen und dunklen Hintergrund, ein quadratisches Icon (Favicon, App-Icon, Social Media) und eine einfarbige Version (Stempel, Fahrzeug, Druck).
 - Die Freigabe erfolgt durch Manuel.
+- Entwürfe liegen in [logo-entwuerfe/](logo-entwuerfe/). **Favorit (24.11.2026): Variante A „Ellipse“** mit dunkelroter Ellipse, flachem Pinsel, Schriftzug „Kringelis“ und dem Zusatz „Malermeister · München“. Die Varianten B und C bleiben erhalten, bis Manuel entschieden hat.
 
 ### Bildmaterial: Auswahl und Aufbereitung
 
 - Quelle: `Bildvorrat/alt` (alte Webseite, klein) und `Bildvorrat/neu` (rund 150 Fotos, zusammen etwa 350 MB, Einzelbilder bis 8 MB).
 - Der Ordner `Bildvorrat/` ist per `.gitignore` vom Repo ausgeschlossen, die Originale bleiben lokal.
 - **Auswahl:** Nur Bilder mit klarer Aussage, guter Schärfe und Belichtung, ohne personenbezogene Details (Namen an Klingeln, Post, Familienfotos, erkennbare Personen ohne Einwilligung). Doppelte oder sehr ähnliche Motive aussortieren.
-- **Aufbereitung vor dem Einchecken** (Skript, reproduzierbar):
+- **Aufbereitung vor dem Einchecken** per Skript, reproduzierbar: `node scripts/prepareImages.js` mit der Auswahlliste [scripts/bildauswahl.json](../scripts/bildauswahl.json), die auch Zielname und Alt-Text je Bild enthält. Bei geänderter Auswahl die JSON anpassen und das Skript erneut ausführen (`--force` überschreibt vorhandene Bilder).
   - Längste Kante maximal **2400 px** (Hero) bzw. **1600 px** (übrige Bilder)
   - JPEG in Qualität etwa 80, Ausrichtung gemäß EXIF korrigiert
   - **EXIF-Metadaten entfernen**: GPS-Koordinaten könnten die Adresse der Kunden verraten
   - Sprechende Dateinamen (`stuck-deckenprofil-altbau-schwabing.jpg` statt `IMG_8590.JPG`)
-- Die aufbereiteten Bilder liegen unter `src/assets/images/…` und werden über `astro:assets` (`<Image>`/`<Picture>`) ausgeliefert. Astro erzeugt beim Build AVIF/WebP in mehreren Größen (`srcset`).
+- Die aufbereiteten Bilder liegen unter `public/images/projekte/<kategorie>/` (Template-Konvention). Ausgeliefert werden sie über die Template-Komponente `ImageMod` bzw. `astro:assets`, die beim Build optimierte Varianten (WebP/AVIF, passende Größen) erzeugt. Nie als einfaches `<img src="/images/…">` einbinden, sonst wird das unoptimierte JPEG ausgeliefert.
+- Für ein bildschirmbreites Hero-Bild braucht es mindestens 2000 px Breite. Viele Fotos liegen nur als WhatsApp-Kopie vor (1024 px). Sie taugen für Kacheln, aber nicht für den Hero (Details in [BILDAUSWAHL.md](BILDAUSWAHL.md)).
 - Zielgröße pro ausgeliefertem Bild: unter 200 KB, Hero-Bild unter 300 KB.
 
 ## 7. Technik
@@ -317,7 +319,8 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 ## 12. Offene Punkte (beim Kunden klären)
 
 - [ ] Genaue Bezeichnung, Aussteller und Jahr des **Schimmel-Zertifikats**; darf es als Bild gezeigt werden? (bei Manuel angefragt am 24.11.2026)
-- [ ] Freigabe des modernisierten Logos durch Manuel
+- [ ] Freigabe des modernisierten Logos durch Manuel (Favorit: Variante A)
+- [ ] Originale der WhatsApp-Fotos (`IMG_8594`–`IMG_8634`) in voller Auflösung, vor allem `IMG_8596` (Blau/Gold-Wand) als Hero-Kandidat
 - [ ] Dark Mode behalten oder entfernen? (Manuel entscheidet)
 - [ ] Umzug Netlify → IONOS: Zeitpunkt, Tarif (statisches Hosting oder Webspace), Umsetzung von Weiterleitungen und Security-Headern dort (`.htaccess` statt `_redirects`/`netlify.toml`)
 - [ ] Saschas Nachname, Rolle/Bezeichnung (Geselle?) und Einverständnis für Foto und Namen
