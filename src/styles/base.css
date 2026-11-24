@@ -3,16 +3,18 @@ html {
   @apply text-[17px] md:text-base;
 }
 
-/* Smooth anchor scrolling only for users who did not ask for reduced motion */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Anchor targets must not hide behind the sticky header */
+/* Anchor scrolling is handled by the script in Header.astro (eased, measured
+   header offset). No CSS smooth scrolling: it would fight with that script.
+   Fallback without JavaScript: sections have large top padding already, so they
+   only need a small margin; other anchor targets clear the sticky header. */
 [id] {
   scroll-margin-top: 6rem;
+}
+section[id] {
+  scroll-margin-top: 0.5rem;
+}
+section[id]:focus {
+  outline: none;
 }
 
 :focus-visible {

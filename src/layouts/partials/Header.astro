@@ -72,38 +72,110 @@ const { contact, settings } = config;
 </header>
 
 <script>
-  // Close the mobile menu after a link was chosen.
+  // Anchor navigation for the single page:
+  // - calm, eased scrolling with a capped duration (native smooth scrolling
+  //   rushes through ~8000 px and cannot be tuned)
+  // - lands the section heading right below the sticky header (measured live)
+  // - scroll spy that does not flicker through all sections while scrolling
+  const header = document.querySelector<HTMLElement>("[data-header]");
   const toggle = document.getElementById("nav-toggle") as HTMLInputElement | null;
-  document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) =>
-    link.addEventListener("click", () => {
-      if (toggle) toggle.checked = false;
-    }),
-  );
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const GAP = 24; // px between header and section heading
 
-  // Scroll spy: highlight the menu item of the section currently in view.
-  const links = new Map<string, HTMLAnchorElement>();
+  const navLinks = new Map<string, HTMLAnchorElement>();
   document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
     const hash = new URL(link.href).hash;
-    if (hash && location.pathname === "/") links.set(hash.slice(1), link);
+    if (hash) navLinks.set(hash.slice(1), link);
   });
 
-  const sections = [...links.keys()]
+  const setActive = (id: string | null) =>
+    navLinks.forEach((link, key) => {
+      const active = key === id;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+
+  // Target: the section's label/heading, so the section padding is not wasted
+  const targetY = (section: HTMLElement) => {
+    const anchor = section.querySelector<HTMLElement>(".eyebrow, h1, h2") ?? section;
+    const headerHeight = header?.offsetHeight ?? 0;
+    const y = anchor.getBoundingClientRect().top + window.scrollY - headerHeight - GAP;
+    return section.id === "start" ? 0 : Math.max(0, y);
+  };
+
+  let programmatic = false;
+  let frame = 0;
+  const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  const scrollToSection = (section: HTMLElement, animate: boolean) => {
+    cancelAnimationFrame(frame);
+    setActive(section.id);
+    const startY = window.scrollY;
+    const distance = targetY(section) - startY;
+
+    if (!animate || reduceMotion.matches || Math.abs(distance) < 2) {
+      window.scrollTo(0, targetY(section));
+      return;
+    }
+
+    programmatic = true;
+    // 450-900 ms depending on distance: calm, but never sluggish
+    const duration = Math.min(900, Math.max(450, Math.abs(distance) / 6));
+    const start = performance.now();
+
+    const step = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      window.scrollTo(0, startY + distance * easeInOutCubic(t));
+      if (t < 1) {
+        frame = requestAnimationFrame(step);
+      } else {
+        // correct if layout changed meanwhile (fonts, lazy images)
+        window.scrollTo(0, targetY(section));
+        programmatic = false;
+      }
+    };
+    frame = requestAnimationFrame(step);
+  };
+
+  // Same-page anchor links anywhere on the page (menu, buttons, footer)
+  document.addEventListener("click", (event) => {
+    const link = (event.target as Element).closest<HTMLAnchorElement>('a[href*="#"]');
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey) return;
+    const url = new URL(link.href);
+    if (url.pathname !== location.pathname || !url.hash) return;
+    const section = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+    if (!section) return;
+
+    event.preventDefault();
+    if (toggle) toggle.checked = false; // close mobile menu
+    history.pushState(null, "", url.hash);
+    scrollToSection(section, true);
+    // move keyboard focus to the target for screen reader / keyboard users
+    section.setAttribute("tabindex", "-1");
+    section.focus({ preventScroll: true });
+  });
+
+  // Coming from another page (e.g. /impressum -> /#ablauf): fix the landing position
+  const fromHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const section = id ? document.getElementById(id) : null;
+    if (section) scrollToSection(section, false);
+  };
+  window.addEventListener("load", fromHash);
+  window.addEventListener("popstate", fromHash);
+
+  // Scroll spy (only on the page that contains the sections)
+  const sections = [...navLinks.keys()]
     .map((id) => document.getElementById(id))
     .filter((el): el is HTMLElement => el !== null);
 
   if (sections.length && "IntersectionObserver" in window) {
-    const setActive = (id: string | null) =>
-      links.forEach((link, key) => {
-        const active = key === id;
-        link.classList.toggle("active", active);
-        if (active) link.setAttribute("aria-current", "true");
-        else link.removeAttribute("aria-current");
-      });
-
     const visible = new Map<string, number>();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => visible.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
+        if (programmatic) return; // keep the clicked item highlighted while scrolling
         const best = [...visible.entries()].sort((a, b) => b[1] - a[1])[0];
         setActive(best && best[1] > 0 ? best[0] : null);
       },
