@@ -2,6 +2,7 @@
   "main": [
     {
       "name": "Leistungen",
+      "url": "/leistungen",
       "hasChildren": true,
       "children": [
         {
