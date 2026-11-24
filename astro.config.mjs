@@ -10,6 +10,11 @@ import remarkToc from "remark-toc";
 import sharp from "sharp";
 import config from "./src/config/config.json";
 import theme from "./src/config/theme.json";
+import { createHash } from "node:crypto";
+import { THEME_INIT_SCRIPT } from "./src/lib/themeInit.mjs";
+
+// CSP hash of the inline dark-mode script (see src/lib/themeInit.mjs)
+const themeInitHash = `sha256-${createHash("sha256").update(THEME_INIT_SCRIPT).digest("base64")}`;
 
 // Build fonts configuration from theme.json.
 // Fonts are self-hosted: files live in src/assets/fonts and are shipped with the
@@ -48,6 +53,24 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
   fonts: fontsConfig,
 
+  // Content Security Policy: Astro hashes all scripts and styles it emits and
+  // writes a <meta http-equiv="content-security-policy"> into every page.
+  // Headers that cannot be set via <meta> (frame-ancestors, HSTS, ...) are in netlify.toml.
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "img-src 'self' data:",
+        "font-src 'self'",
+        "connect-src 'self'",
+        "form-action 'self'",
+        "base-uri 'self'",
+        "object-src 'none'",
+      ],
+      scriptDirective: { hashes: [themeInitHash] },
+    },
+  },
+
   integrations: [
     react(),
     sitemap(),
@@ -72,6 +95,7 @@ export default defineConfig({
         [remarkCollapse, { test: "Table of contents" }],
       ],
     }),
-    shikiConfig: { theme: "one-dark-pro", wrap: true },
+    // no code blocks on this site; Shiki's inline styles would conflict with the CSP
+    syntaxHighlight: false,
   },
 });
