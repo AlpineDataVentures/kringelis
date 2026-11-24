@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -8 520 186" width="520" height="186">
+  <!-- Bildmarke: liegende Ellipse, flache Palette, gut erkennbarer Pinsel -->
+  <g id="mark">
+    <ellipse cx="85" cy="92" rx="80" ry="51" transform="rotate(-8 85 92)" fill="#8E1B1B"/>
+    <!-- Palette -->
+    <path d="M82 101 C80 79 118 68 141 78 C161 87 155 113 131 118 C118 121 113 112 103 114 C92 116 83 112 82 101 Z" fill="#F1E4D1"/>
+    <ellipse cx="96" cy="104" rx="6.5" ry="4.5" fill="#8E1B1B"/>
+    <circle cx="111" cy="86" r="6.5" fill="#D9A441"/>
+    <circle cx="128" cy="85" r="6.5" fill="#5B7FA6"/>
+    <circle cx="141" cy="98" r="6.5" fill="#6E9A6A"/>
+    <!-- Pinsel -->
+    <g transform="translate(60 104) rotate(-58)" stroke="#2B2522" stroke-width="1.2" stroke-linejoin="round">
+      <path d="M0 -5.5 L118 -3 Q124 0 118 3 L0 5.5 Z" fill="#C9965E"/>
+      <rect x="-15" y="-6.5" width="16" height="13" rx="2" fill="#5A524C"/>
+      <path d="M-15 -6.5 C-30 -9 -42 -5 -54 0 C-42 5 -30 9 -15 6.5 Z" fill="#7A5230"/>
+      <path d="M-54 0 C-48 -3.5 -41 -4.5 -36 -4 C-36 0 -36 2 -36 4 C-41 4.5 -48 3.5 -54 0 Z" fill="#8E1B1B" stroke="none"/>
+    </g>
+  </g>
+  <text x="192" y="72" font-family="Fraunces, Georgia, serif" font-weight="650" font-size="54" letter-spacing="-0.5" fill="#2B2522">Manuel</text>
+  <text x="192" y="124" font-family="Fraunces, Georgia, serif" font-weight="650" font-size="54" letter-spacing="-0.5" fill="#2B2522">Kringelis</text>
+  <text x="195" y="154" font-family="'Source Sans 3', Arial, sans-serif" font-weight="600" font-size="16.5" letter-spacing="4" fill="#8E1B1B">MALERMEISTER · MÜNCHEN</text>
+</svg>
