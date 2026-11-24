@@ -1,9 +1,9 @@
 {
-  "name": "astroplate",
-  "version": "6.2.1",
+  "name": "Webseite Malerbetrieb Kringelis",
+  "version": "0.5.1",
   "description": "Astro and Tailwindcss boilerplate",
-  "author": "zeon.studio",
-  "license": "MIT",
+  "author": "Alpine Data Ventures im Auftrag von Malerbetrieb Kringelis",
+  "license": "keine",
   "packageManager": "npm@11.18.0",
   "type": "module",
   "scripts": {
