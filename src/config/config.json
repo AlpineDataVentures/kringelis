@@ -19,7 +19,8 @@
     "phone_link": "+491703151138",
     "email": "info@malerbetrieb-kringelis.de",
     "founded": "2012",
-    "service_area": "München und Umland"
+    "service_area": "München und Umland",
+    "hours": "Mo–Fr von 7 bis 16 Uhr"
   },
   "settings": {
     "sticky_header": true,

@@ -1,6 +1,5 @@
 ---
 import Logo from "@/components/Logo.astro";
-import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 
@@ -24,7 +23,6 @@ const { contact, settings } = config;
     <input id="nav-toggle" type="checkbox" class="peer hidden" />
 
     <div class="order-1 ml-auto flex items-center gap-3 lg:order-2 lg:ml-6">
-      <ThemeSwitcher />
       <a
         href={`tel:${contact.phone_link}`}
         class="btn btn-primary btn-sm inline-flex items-center gap-2"
@@ -39,6 +37,7 @@ const { contact, settings } = config;
             d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"
           ></path></svg
         >
+        <span class="sm:hidden">Anrufen</span>
         <span class="hidden sm:inline">{contact.phone_display}</span>
       </a>
       <label

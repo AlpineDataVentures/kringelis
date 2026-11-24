@@ -1,6 +1,7 @@
 ---
 import Logo from "@/components/Logo.astro";
 import Social from "@/components/Social.astro";
+import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
@@ -28,6 +29,7 @@ const year = new Date().getFullYear();
           {contact.street}<br />
           {contact.zip} {contact.city}<br />
           <a class="footer-link" href={`tel:${contact.phone_link}`}>Telefon {contact.phone_display}</a><br />
+          <span class="text-text-light dark:text-darkmode-text-light">{contact.hours}</span><br />
           <a class="footer-link" href={`mailto:${contact.email}`}>{contact.email}</a>
         </address>
       </div>
@@ -57,6 +59,10 @@ const year = new Date().getFullYear();
   <div class="border-t border-border py-6 dark:border-darkmode-border">
     <div class="container flex flex-col items-center justify-between gap-3 text-sm text-text-light md:flex-row dark:text-darkmode-text-light">
       <p>© {year} {contact.company}</p>
+      <div class="flex items-center gap-3">
+        <span>Darstellung hell/dunkel</span>
+        <ThemeSwitcher />
+      </div>
       <ul class="flex gap-6">
         {
           footer.map((item) => (

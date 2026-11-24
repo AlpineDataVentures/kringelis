@@ -13,6 +13,18 @@ interface Props {
 
 const { data } = Astro.props;
 const { contact } = config;
+
+// error messages, shown below the fields (signal red + icon, see .form-error)
+const errors = {
+  name: "Bitte geben Sie Ihren Namen an.",
+  reach: "Bitte geben Sie eine E-Mail-Adresse oder eine Telefonnummer an, damit wir Sie erreichen.",
+  email: "Bitte prüfen Sie die E-Mail-Adresse.",
+  nachricht: "Bitte beschreiben Sie kurz Ihr Anliegen.",
+};
+
+// exclamation icon for error messages (color comes from .form-error)
+const errorIcon =
+  '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm-.75-11.5a.75.75 0 0 1 1.5 0v4a.75.75 0 0 1-1.5 0v-4ZM10 14.75a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"/></svg>';
 ---
 
 <section id="kontakt" class="section" aria-labelledby="kontakt-title">
@@ -25,6 +37,9 @@ const { contact } = config;
           <a href={`tel:${contact.phone_link}`} class="contact-card">
             <span class="contact-card-label">Telefon</span>
             <span class="contact-card-value">{contact.phone_display}</span>
+            <span class="mt-1 text-text-light dark:text-darkmode-text-light">
+              Am besten erreichen Sie uns {contact.hours}. Sonst rufen wir Sie gerne zurück.
+            </span>
           </a>
         </li>
         <li>
@@ -49,6 +64,7 @@ const { contact } = config;
         Netlify Forms: Netlify processes the submission (see Datenschutzerklärung).
         Spam protection via honeypot field, no reCAPTCHA. On a later move to IONOS
         the form needs a different backend (docs/ANFORDERUNGEN.md, open points).
+        Without JavaScript the browser's native validation (required fields) applies.
       -->
       <form
         name="kontakt"
@@ -57,6 +73,7 @@ const { contact } = config;
         data-netlify="true"
         netlify-honeypot="firma-website"
         class="rounded-2xl bg-light p-6 md:p-10 dark:bg-darkmode-light"
+        data-contact-form
       >
         <input type="hidden" name="form-name" value="kontakt" />
         <p class="hidden" aria-hidden="true">
@@ -67,19 +84,32 @@ const { contact } = config;
           <div>
             <label for="name" class="form-label">Name *</label>
             <input id="name" name="name" type="text" required autocomplete="name" class="form-input" />
+            <p id="name-error" class="form-error" hidden><Fragment set:html={errorIcon} />{errors.name}</p>
           </div>
           <div>
             <label for="ort" class="form-label">Ort / Stadtteil</label>
             <input id="ort" name="ort" type="text" autocomplete="address-level2" class="form-input" />
           </div>
-          <div>
-            <label for="email" class="form-label">E-Mail *</label>
-            <input id="email" name="email" type="email" required autocomplete="email" class="form-input" />
-          </div>
-          <div>
-            <label for="telefon" class="form-label">Telefon (für Rückruf)</label>
-            <input id="telefon" name="telefon" type="tel" autocomplete="tel" class="form-input" />
-          </div>
+
+          <fieldset class="md:col-span-2" aria-describedby="reach-hint">
+            <legend class="form-label">So erreichen wir Sie *</legend>
+            <p id="reach-hint" class="mb-3 text-text-light dark:text-darkmode-text-light">
+              E-Mail oder Telefon – eins von beiden genügt.
+            </p>
+            <div class="grid gap-5 md:grid-cols-2">
+              <div>
+                <label for="email" class="form-label">E-Mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" class="form-input" />
+                <p id="email-error" class="form-error" hidden><Fragment set:html={errorIcon} />{errors.email}</p>
+              </div>
+              <div>
+                <label for="telefon" class="form-label">Telefon</label>
+                <input id="telefon" name="telefon" type="tel" autocomplete="tel" class="form-input" />
+              </div>
+            </div>
+            <p id="reach-error" class="form-error" hidden><Fragment set:html={errorIcon} />{errors.reach}</p>
+          </fieldset>
+
           <div class="md:col-span-2">
             <label for="nachricht" class="form-label">Ihr Anliegen *</label>
             <textarea
@@ -89,10 +119,11 @@ const { contact } = config;
               required
               class="form-input"
               placeholder="z. B. Wohnzimmer und Flur streichen, ca. 40 m², Altbau"></textarea>
+            <p id="nachricht-error" class="form-error" hidden><Fragment set:html={errorIcon} />{errors.nachricht}</p>
           </div>
         </div>
 
-        <p class="mt-5 text-sm text-text-light dark:text-darkmode-text-light">
+        <p class="mt-5 text-text-light dark:text-darkmode-text-light">
           Felder mit * sind Pflichtfelder. Ihre Angaben verwenden wir nur zur Bearbeitung
           Ihrer Anfrage. Mehr dazu in der <a class="underline" href="/datenschutz">Datenschutzerklärung</a>.
         </p>
@@ -101,3 +132,67 @@ const { contact } = config;
     </div>
   </div>
 </section>
+
+<script>
+  // Accessible client-side validation with own error messages.
+  // Rule: name and message are required, plus e-mail OR phone.
+  const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+
+  if (form) {
+    form.noValidate = true; // use our messages instead of the browser bubbles
+    const field = (id: string) => form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`#${id}`)!;
+    const name = field("name");
+    const email = field("email") as HTMLInputElement;
+    const phone = field("telefon");
+    const message = field("nachricht");
+
+    const setError = (errorId: string, inputs: (HTMLInputElement | HTMLTextAreaElement)[], show: boolean) => {
+      const el = form.querySelector<HTMLElement>(`#${errorId}`)!;
+      el.hidden = !show;
+      if (show) el.setAttribute("role", "alert");
+      else el.removeAttribute("role");
+      inputs.forEach((input) => {
+        const ids = new Set((input.getAttribute("aria-describedby") ?? "").split(" ").filter(Boolean));
+        if (show) {
+          input.setAttribute("aria-invalid", "true");
+          ids.add(errorId);
+        } else {
+          input.removeAttribute("aria-invalid");
+          ids.delete(errorId);
+        }
+        if (ids.size) input.setAttribute("aria-describedby", [...ids].join(" "));
+        else input.removeAttribute("aria-describedby");
+      });
+    };
+
+    const validate = () => {
+      const results = [
+        { id: "name-error", inputs: [name], bad: !name.value.trim() },
+        {
+          id: "reach-error",
+          inputs: [email, phone],
+          bad: !email.value.trim() && !phone.value.trim(),
+        },
+        { id: "email-error", inputs: [email], bad: !!email.value.trim() && !email.checkValidity() },
+        { id: "nachricht-error", inputs: [message], bad: !message.value.trim() },
+      ];
+      results.forEach((r) => setError(r.id, r.inputs, r.bad));
+      return results.filter((r) => r.bad);
+    };
+
+    let submitted = false;
+    form.addEventListener("submit", (event) => {
+      submitted = true;
+      const failed = validate();
+      if (failed.length) {
+        event.preventDefault();
+        failed[0].inputs[0].focus();
+      }
+    });
+
+    // after the first attempt, update messages while the user types
+    form.addEventListener("input", () => {
+      if (submitted) validate();
+    });
+  }
+</script>
