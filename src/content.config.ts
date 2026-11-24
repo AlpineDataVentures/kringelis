@@ -20,22 +20,6 @@ const pagesCollection = defineCollection({
   }),
 });
 
-// about collection schema
-const ueberCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/ueber" }),
-  schema: z.object({
-    ...commonFields,
-  }),
-});
-
-// contact collection schema
-const kontaktCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/kontakt" }),
-  schema: z.object({
-    ...commonFields,
-  }),
-});
-
 // Homepage collection schema
 const homepageCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
@@ -111,8 +95,6 @@ export const collections = {
   // Pages
   homepage: homepageCollection,
   pages: pagesCollection,
-  ueber: ueberCollection,
-  kontakt: kontaktCollection,
 
   // sections
   ctaSection: ctaSectionCollection,

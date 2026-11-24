@@ -16,11 +16,6 @@
     "theme_switcher": true,
     "default_theme": "system"
   },
-  "announcement": {
-    "enable": true,
-    "content": "<span class='text-center block'>♥️ Willkommen auf unserer neu überarbeiteten Webseite </span>",
-    "expire_days": 7
-  },
   "params": {
     "contact_form_action": "#",
     "copyright": "Developed by [Alpine Data Ventures](https://alpinedata.de)"
@@ -34,10 +29,6 @@
     "enable": true,
     "label": "Anruf",
     "link": "tel:+491703151138"
-  },
-  "google_tag_manager": {
-    "enable": false,
-    "gtm_id": "GTM-XXXXXX"
   },
   "metadata": {
     "meta_author": "Malerbetrieb Manuel Kringelis in München-Schwabing",
