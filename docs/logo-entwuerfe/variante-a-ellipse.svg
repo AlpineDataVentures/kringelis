@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 170" width="560" height="170">
+  <rect width="560" height="170" fill="#fff"/>
+  <g transform="translate(85 85)">
+    <ellipse rx="72" ry="46" fill="#8E1B1B" transform="rotate(-10)"/>
+    <g transform="rotate(-52)">
+      <path d="M-20 -3.2 L92 -1.6 Q96 0 92 1.6 L-20 3.6 Z" fill="#E9D9C3"/>
+      <rect x="-34" y="-5" width="15" height="10" rx="1.5" fill="#B9B2AA"/>
+      <path d="M-34 -5 C-50 -6 -66 -2 -76 4 C-64 6 -50 5 -34 5 Z" fill="#E9D9C3"/>
+      <path d="M-76 4 C-70 1 -60 0 -52 1 C-60 4 -68 5 -76 4 Z" fill="#8E1B1B"/>
+    </g>
+  </g>
+  <text x="180" y="92" font-family="Georgia, serif" font-weight="700" font-size="58" fill="#2B2522">Kringelis</text>
+  <text x="183" y="124" font-family="Arial, sans-serif" font-size="15" letter-spacing="4.2" fill="#8E1B1B">MALERMEISTER · MÜNCHEN</text>
+</svg>

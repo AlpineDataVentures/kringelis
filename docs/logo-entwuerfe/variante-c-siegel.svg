@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 560 170" width="560" height="170">
+  <rect width="560" height="170" fill="#fff"/>
+  <defs><path id="ring" d="M85 85 m-56 0 a56 56 0 1 1 112 0 a56 56 0 1 1 -112 0"/></defs>
+  <circle cx="85" cy="85" r="76" fill="#8E1B1B"/>
+  <circle cx="85" cy="85" r="44" fill="none" stroke="#E9D9C3" stroke-width="1.2"/>
+  <text font-family="Arial, sans-serif" font-size="12.5" letter-spacing="2.6" fill="#fff" font-weight="700"><textPath xlink:href="#ring">MEISTERBETRIEB · MÜNCHEN · SEIT 2012 ·</textPath></text>
+  <g transform="translate(85 85) rotate(-50)">
+    <path d="M-6 -2.4 L36 -1.2 Q39 0 36 1.2 L-6 2.6 Z" fill="#E9D9C3"/>
+    <rect x="-16" y="-3.8" width="11" height="7.6" rx="1" fill="#B9B2AA"/>
+    <path d="M-16 -3.8 C-26 -4.5 -34 -1.5 -40 3 C-32 4.5 -24 4 -16 3.8 Z" fill="#fff"/>
+  </g>
+  <text x="182" y="92" font-family="Georgia, serif" font-weight="700" font-size="58" fill="#2B2522">Kringelis</text>
+  <text x="185" y="124" font-family="Arial, sans-serif" font-size="15" letter-spacing="4.2" fill="#8E1B1B">MALERBETRIEB</text>
+</svg>

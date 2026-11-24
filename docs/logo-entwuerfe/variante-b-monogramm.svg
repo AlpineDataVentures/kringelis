@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 170" width="560" height="170">
+  <rect width="560" height="170" fill="#fff"/>
+  <rect x="22" y="25" width="120" height="120" rx="26" fill="#8E1B1B"/>
+  <text x="82" y="117" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="88" fill="#fff">K</text>
+  <path d="M40 128 C70 121 105 121 126 125 C104 127 72 128 44 133 Z" fill="#E9D9C3"/>
+  <text x="168" y="88" font-family="Georgia, serif" font-weight="700" font-size="56" fill="#2B2522">Kringelis</text>
+  <path d="M170 104 C260 96 380 99 452 101 C384 104 268 106 172 112 Z" fill="#8E1B1B"/>
+  <text x="171" y="136" font-family="Arial, sans-serif" font-size="14" letter-spacing="4" fill="#5A524C">MALERMEISTER · MÜNCHEN</text>
+</svg>
