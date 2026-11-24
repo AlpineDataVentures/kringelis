@@ -1,142 +1,90 @@
 ---
 title: "Datenschutz"
-meta_title: "Datenschutz - Alpine Data Ventures"
-description: "Informationen zum Datenschutz bei Alpine Data Ventures: Verarbeitung personenbezogener Daten, Ihre Rechte und unsere Kontaktdaten."
-noindex: false
-canonical: "https://alpinedata.de/datenschutz"
+meta_title: "Datenschutzerklärung | Malerbetrieb Kringelis"
+description: "Informationen zur Verarbeitung personenbezogener Daten auf der Website des Malerbetriebs Manuel Kringelis."
+canonical: "https://www.malerbetrieb-kringelis.de/datenschutz"
 draft: false
 ---
 
-<p>
-  <em>letztes Update:</em> 11. Februar 2026
-</p>
+<!--
+  ENTWURF – vor dem Livegang prüfen lassen (keine Rechtsberatung).
+  Offene Punkte: AVV-Kette (Manuel Kringelis ↔ Betreiber des Netlify-Kontos ↔ Netlify) klären;
+  Abschnitt Hosting beim Umzug zu IONOS anpassen.
+-->
 
-### Verantwortliche Stelle
+<p><em>Stand: 24. November 2026</em></p>
 
-Verantwortlicher im Sinne der DSGVO und anderer nationaler Datenschutzgesetze der EU-Mitgliedstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
-<p>
-  Alpine Data Ventures GmbH<br>
-  Leopoldstraße 31<br> 
-  80802 München<br>  
-</p>
-<p>
-  Telefon: +491608014812<br>
-  E-Mail: <a href="mailto:info@alpinedata.de">info(at)alpinedata.de</a> <br>
-  Vertreten durch die Geschäftsführer Benjamin Diez, Dr. Carsten Hof, Andreas Klostermann & Julian Koller. <br>
-</p>
+Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Website ist bewusst so gebaut, dass sie **ohne Cookies, ohne Tracking und ohne Einbindung von Drittanbietern** (etwa Google Fonts, Google Maps, Analyse- oder Social-Media-Dienste) auskommt. Im Folgenden informieren wir Sie, welche Daten dennoch verarbeitet werden.
 
-Bei Fragen zu unserem Datenschutz oder zur Geltendmachung Ihrer Betroffenenrechte können Sie uns jederzeit kontaktieren unter: <a href="mailto:datenschutz@alpinedata.de">datenschutz(at)alpinedata.de</a>.
-Ein Datenschutzbeauftragter ist nicht bestellt, da hierfür keine gesetzliche Verpflichtung besteht.
+### 1. Verantwortlicher
 
+Malerbetrieb Manuel Kringelis<br>
+Inhaber: Manuel Kringelis<br>
+Winzererstraße 69<br>
+80797 München<br>
+Telefon: <a href="tel:+491703151138">0170 3151138</a><br>
+E-Mail: <a href="mailto:info@malerbetrieb-kringelis.de">info@malerbetrieb-kringelis.de</a>
 
-### Allgemeine Hinweise zur Datenverarbeitung
-Wir verarbeiten personenbezogene Daten unserer Nutzer nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist oder eine andere Rechtsgrundlage nach Art. 6 DSGVO besteht.
+Ein Datenschutzbeauftragter ist nicht benannt, da hierfür keine gesetzliche Pflicht besteht.
 
-**Rechtsgrundlagen der Verarbeitung**
-Je nach Art der Verarbeitung stützen wir uns auf folgende Rechtsgrundlagen:
-- Art. 6 Abs. 1 lit. a DSGVO – Einwilligung
-- Art. 6 Abs. 1 lit. b DSGVO – Erfüllung eines Vertrags oder vorvertragliche Maßnahmen
-- Art. 6 Abs. 1 lit. f DSGVO – Berechtigtes Interesse (z. B. Sicherheit, Stabilität, Reichweitenmessung)
-- § 25 Abs. 1 TTDSG – Einwilligung für Cookies/Speicherung
-- § 25 Abs. 2 Nr. 2 TTDSG – Technische Notwendigkeit für Cookies/Speicherung
+### 2. Hosting und Server-Logfiles
 
-### Hosting
+Diese Website wird bei **Netlify, Inc.** (San Francisco, USA) gehostet. Beim Aufruf der Website verarbeitet der Hoster automatisch Daten, die Ihr Browser übermittelt:
 
-Unsere Website wird bei einem externen Dienstleister gehostet (Hoster). Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters verarbeitet. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten sowie Websitezugriffe handeln.
-
-Unser Hoster ist: Netlify, Inc., USA. 
-
-Die Nutzung des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). Die Verarbeitung der Daten erfolgt auf Basis einer Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO (<a href="https://www.netlify.com/v3/static/pdf/netlify-dpa.pdf">AVV</a>).
-
-Eine Übermittlung personenbezogener Daten in die USA kann nicht ausgeschlossen werden. Sie erfolgt auf Grundlage der von der EU-Kommission genehmigten Standardvertragsklauseln (Art. 46 DSGVO).
-
-
-### Zugriffsdaten / Server-Logfiles
-
-Beim Aufruf unserer Website erhebt der Provider automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch an uns übermittelt:
-- IP-Adresse (zur Erkennung und Abwehr von Angriffen)
-- Datum und Uhrzeit der Serveranfrage
-- Browsertyp und Browserversion
-- Verwendetes Betriebssystem
-- Referrer URL (die zuvor besuchte Seite)
-- Hostname des zugreifenden Rechners
-
-**Zweck & Rechtsgrundlage:** Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website sowie zur Sicherheitsanalyse.
-
-**Speicherdauer:** Die Daten werden nur zeitlich begrenzt gespeichert und anschließend automatisch gelöscht oder vollständig anonymisiert, sofern keine sicherheitsrelevante Notwendigkeit (z. B. bei Missbrauchsverdacht) zur längeren Aufbewahrung besteht.
-
-
-### Kontaktaufnahme (E-Mail, Telefon)
-Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.
-
-**Rechtsgrundlage:** Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
-
-**Speicherdauer:** Die von Ihnen an uns per Kontaktanfrage übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.
-
-### Cookies & Consent Management
-
-- **Technisch notwendige Cookies** </br>  Wir setzen selbst keine technisch notwendigen Cookies.
-
-- **Einwilligungspflichtige Cookies** </br> Cookies zu Analyse- und Marketingzwecken (z. B. GA4, Google Ads) werden nur gesetzt, wenn Sie zuvor Ihre ausdrückliche Einwilligung über unseren Consent-Manager erteilt haben. **Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG.
-
-Sie können Ihre Einwilligung jederzeit über die Einstellungen im <a href="#" onclick="return klaro.show();">Consent-Manager</a> widerrufen oder anpassen.
-
-
-### Google Tag Manager
-
-Wir verwenden den Google Tag Manager, Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.  
-Der GTM setzt selbst keine Cookies. Er dient ausschließlich zur Verwaltung und Auslösung anderer Tags, z. B. GA4 oder Google Ads, die ihrerseits personenbezogene Daten verarbeiten können.
-
-### Google Analytics (GA4)
-
-Wir setzen Google Analytics 4 (GA4) über den Google Tag Manager ein, um die Nutzung unserer Website zu analysieren und statistische Reports zu erstellen.  
-
-**Daten, die verarbeitet werden können:**
-- Geräte- und Browserinformationen (User Agent)
-- IP-Adresse (anonymisiert)
-- Referrer URL
-- Nutzerinteraktionen auf der Website
-
-**Consent Mode v2:** Standardmäßig werden keine personenbezogenen Daten verarbeitet (alle Parameter auf "denied"). Nach Zustimmung werden Analytics-Daten gemäß Ihrer Einwilligung verarbeitet.  
-
-**Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO
-
-### Google Ads / Conversion-Tracking
-
-Wir nutzen Google Ads, um unser Angebot im Google-Werbenetzwerk zu bewerben und den Erfolg unserer Kampagnen zu messen.  
-
-**Daten, die verarbeitet werden können:**
-- Geräte- und Browserinformationen
 - IP-Adresse
-- Referrer URL
-- Conversion-ID
+- Datum und Uhrzeit des Abrufs
+- aufgerufene Seite bzw. Datei
+- Browsertyp und -version, Betriebssystem
+- Referrer-URL (die zuvor besuchte Seite), sofern übermittelt
 
-**Consent Mode v2:** Standardmäßig sind alle Tracking-Funktionen deaktiviert. Erst nach Ihrer Einwilligung werden diese Funktionen aktiviert.  
+Diese Daten sind technisch erforderlich, um die Website auszuliefern und ihre Sicherheit und Stabilität zu gewährleisten (z. B. Abwehr von Angriffen). Rechtsgrundlage ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden nicht mit anderen Datenquellen zusammengeführt und nach kurzer Zeit gelöscht.
 
-**Rechtsgrundlage:** Art. 6 Abs. 1 lit. a DSGVO
+Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Eine Übermittlung von Daten in die USA kann nicht ausgeschlossen werden. Sie erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) bzw. – soweit der Anbieter zertifiziert ist – des Angemessenheitsbeschlusses der EU-Kommission zum EU-U.S. Data Privacy Framework (Art. 45 DSGVO).
 
-**Datenübermittlung in die USA / EU-US Data Privacy Framework:** Google Ireland Limited übermittelt Daten an die Muttergesellschaft Google LLC in den USA. Google LLC ist nach dem EU-US DPF zertifiziert (Art. 45 DSGVO).
+### 3. Kontaktformular
 
+Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, optional Telefonnummer und Ort sowie Ihre Nachricht), um Ihre Anfrage zu bearbeiten und Ihnen ein Angebot zu machen.
 
-### Widerruf der Einwilligung
+Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. – bei sonstigen Anfragen – unser berechtigtes Interesse an der Beantwortung nach Art. 6 Abs. 1 lit. f DSGVO.
 
-Sie können eine bereits erteilte Einwilligung zur Datenverarbeitung jederzeit mit Wirkung für die Zukunft widerrufen. Eine formlose Mitteilung per E-Mail reicht dazu aus. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
+Die Formulardaten werden über die Formularfunktion unseres Hosters Netlify entgegengenommen und an uns weitergeleitet (siehe Abschnitt 2). Zum Schutz vor Spam setzen wir ein unsichtbares Prüffeld ein; ein Captcha-Dienst (z. B. Google reCAPTCHA) wird nicht verwendet.
 
+Wir löschen Ihre Anfrage, sobald sie abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten (etwa bei einem späteren Auftrag nach Handels- und Steuerrecht) entgegenstehen.
 
-### Rechte der betroffenen Personen
+### 4. Kontakt per E-Mail oder Telefon
 
-Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:
-- **Auskunft** über Ihre gespeicherten personenbezogenen Daten (Art. 15 DSGVO)
-- **Berichtigung** unrichtiger Daten (Art. 16 DSGVO)
-- **Löschung** Ihrer Daten (Art. 17 DSGVO)
-- **Einschränkung der Verarbeitung** (Art. 18 DSGVO)
-- **Datenübertragbarkeit** (Art. 20 DSGVO)
-- **Widerspruch** gegen die Verarbeitung (Art. 21 DSGVO), insbesondere bei Direktwerbung oder Verarbeitung auf Basis von berechtigtem Interesse.
-- **Beschwerderecht:** Zudem steht Ihnen ein Beschwerderecht bei der zuständigen Datenschutzaufsichtsbehörde zu (Art. 77 DSGVO).
+Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihres Anliegens. Rechtsgrundlage und Löschung wie in Abschnitt 3.
 
+### 5. Keine Cookies, lokale Speicherung der Darstellung
 
-### SSL- bzw. TLS-Verschlüsselung
-Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+Diese Website setzt **keine Cookies**. Wenn Sie über den Schalter in der Kopfzeile zwischen heller und dunkler Darstellung wechseln, wird diese Einstellung ausschließlich lokal in Ihrem Browser gespeichert (Local Storage) und nicht an uns übertragen. Dies ist für die von Ihnen gewünschte Funktion unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG). Sie können den Eintrag jederzeit über die Einstellungen Ihres Browsers löschen.
 
-### Änderungen dieser Datenschutzerklärung
-Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z. B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
+### 6. Schriftarten
+
+Die auf dieser Website verwendeten Schriftarten werden direkt von unserem Server geladen. Es findet keine Verbindung zu Servern von Google oder anderen Anbietern statt.
+
+### 7. Links zu anderen Websites
+
+Diese Website enthält Links zu externen Websites (z. B. zur Handwerkskammer). Erst wenn Sie einen solchen Link anklicken, werden Daten an den jeweiligen Anbieter übertragen. Für dessen Datenverarbeitung ist der jeweilige Anbieter verantwortlich.
+
+### 8. Ihre Rechte
+
+Sie haben nach der DSGVO das Recht auf
+
+- Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO),
+- Berichtigung unrichtiger Daten (Art. 16 DSGVO),
+- Löschung (Art. 17 DSGVO) und Einschränkung der Verarbeitung (Art. 18 DSGVO),
+- Datenübertragbarkeit (Art. 20 DSGVO),
+- **Widerspruch** gegen Verarbeitungen, die auf unserem berechtigten Interesse beruhen (Art. 21 DSGVO).
+
+Wenden Sie sich dazu einfach an die oben genannten Kontaktdaten.
+
+Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach, <a href="https://www.lda.bayern.de" rel="noopener">www.lda.bayern.de</a>.
+
+### 9. Verschlüsselung
+
+Diese Website nutzt aus Sicherheitsgründen eine TLS-Verschlüsselung (erkennbar an „https://“ und dem Schloss-Symbol in der Adresszeile). Daten, die Sie an uns übermitteln, können so nicht von Dritten mitgelesen werden.
+
+### 10. Änderungen
+
+Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die rechtlichen Vorgaben ändern. Es gilt die jeweils hier veröffentlichte Fassung.
