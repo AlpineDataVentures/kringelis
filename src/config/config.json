@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Malerbetrieb Kringelis",
-    "base_url": "https://malerbetrieb-kringelis.de",
+    "base_url": "https://www.malerbetrieb-kringelis.de",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",

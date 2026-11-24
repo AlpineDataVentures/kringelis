@@ -3,7 +3,7 @@ title: "Impressum"
 meta_title: "Impressum Malerbetrieb Kringelis"
 description: "Impressum Malerbetrieb Kringelis"
 noindex: false
-canonical: "https://malerbetrieb-kringelis.de/impressum"
+canonical: "https://www.malerbetrieb-kringelis.de/impressum"
 draft: false
 ---
 
@@ -18,8 +18,8 @@ draft: false
 #### Kontakt
 <p>
 Telefon: +49 170 3151138<br>
-E-Mail: <a href="mailto:info@malerbetrieb-kringelis.de>">info@malerbetrieb-kringelis.de</a> <br>
-Internet: <a href="https://malerbetrieb-kringelis.de">https://malerbetrieb-kringelis.de</a>
+E-Mail: <a href="mailto:info@malerbetrieb-kringelis.de">info@malerbetrieb-kringelis.de</a> <br>
+Internet: <a href="https://www.malerbetrieb-kringelis.de">https://www.malerbetrieb-kringelis.de</a>
 </p>
 
 #### Weitere Angaben
