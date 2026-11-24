@@ -84,8 +84,24 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- canonical url -->
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
-    <!-- noindex robots -->
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <!-- index robots -->
+    <!-- for branch-deploys do NOT allow INDEXing, nor let crawler follow links -->
+    {
+      process.env.CONTEXT === "branch-deploy" && (
+        <meta name="robots" content="noindex,nofollow" />
+      )
+    }
+    <!-- for prod-deploys check index variable, but always let crawler follow links. Recommendation by SEO experts -->
+    {
+      process.env.CONTEXT === "production" && noindex && (
+        <meta name="robots" content="noindex,follow" />
+      )
+    }
+    {
+      process.env.CONTEXT === "production" && !noindex && (
+        <meta name="robots" content="index,follow" />
+      )
+    }
 
     <!-- meta-description -->
     <meta
