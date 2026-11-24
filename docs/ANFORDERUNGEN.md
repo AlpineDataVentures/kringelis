@@ -184,7 +184,8 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 - **Alle Schriftdateien werden mit der Webseite deployt und von der eigenen Domain ausgeliefert.** Kein Nachladen zur Laufzeit von Google Fonts, Adobe Fonts, CDNs oder anderen fremden Servern. Grund: Beim Laden von fremden Servern wird die IP-Adresse der Besucher übertragen. Das ist ohne Einwilligung datenschutzrechtlich problematisch (vgl. LG München I, Urteil vom 20.01.2022, Az. 3 O 17493/20).
 - Umsetzung über die Astro Fonts API. Bevorzugt `fontProviders.local()` mit den Schriftdateien (`.woff2`) im Repo unter `src/assets/fonts/`. So hängt der Build nicht von fremden Servern ab, und die Auslieferung ist eindeutig.
   - Remote-Provider wie `fontProviders.google()` laden die Dateien zwar nur beim Build herunter und liefern sie danach selbst aus, sind aber zweite Wahl.
-  - Der aktuelle Template-Stand nutzt `fontProviders.google()` in [astro.config.mjs](../astro.config.mjs) und wird umgestellt.
+  - **Umgesetzt:** `fontProviders.local()` in [astro.config.mjs](../astro.config.mjs). Die Dateien und Lizenzen (OFL) liegen in `src/assets/fonts/`, Namen und Dateien stehen in [theme.json](../src/config/theme.json).
+- **Gewählt (24.11.2026):** Überschriften in **Fraunces** (warme Serifenschrift, passt zum Logo-Schriftzug), Fließtext in **Source Sans 3**. Beide stehen unter der SIL Open Font License und sind als variable Fonts eingebunden (zusammen rund 96 KB).
 - Nur Schriften mit einer Lizenz, die Web-Einbettung und Self-Hosting erlaubt, z. B. SIL Open Font License (OFL). Die Lizenzdatei kommt mit ins Repo.
 - Nur die nötigen Schnitte und Zeichensätze einbinden (z. B. latin, 2–3 Gewichte), `font-display: swap`, die Hauptschrift vorladen.
 - **Prüfung:** Im Netzwerk-Tab des Browsers darf keine Anfrage an `fonts.googleapis.com`, `fonts.gstatic.com` oder andere fremde Domains auftauchen.
@@ -305,7 +306,7 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 
 - [ ] Alle Abschnitte und Seiten aus Abschnitt 5 haben echte Inhalte und Bilder, keine Template- oder Demo-Inhalte mehr
 - [ ] Alle Menü-Anker funktionieren von der Startseite **und** von den Unterseiten aus, kein Abschnitt wird vom Header verdeckt
-- [ ] Nicht mehr benötigte Template-Routen (Blog, Autoren, Kategorien, Tags, `/ueber`, `/kontakt`, `[regular]`-Demo) sind entfernt oder leiten weiter
+- [x] Nicht mehr benötigte Template-Routen (Blog, Autoren, Kategorien, Tags, `/ueber`, `/kontakt`, `[regular]`-Demo) sind entfernt oder leiten weiter
 - [ ] Kontakt (Anruf/E-Mail) auf dem Handy von jeder Seite mit einem Tipp erreichbar
 - [ ] Kontaktformular getestet: Mail kommt an, Spamschutz greift
 - [ ] Lighthouse mobil ≥ 95 in Performance, Barrierefreiheit, Best Practices und SEO
@@ -314,7 +315,7 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 - [ ] 301-Weiterleitungen der alten URLs funktionieren (Stichprobe: `/index.php`, `/index.php/galerie`, `/index.php/impressum`), Termin zum Entfernen der Regeln ist eingeplant
 - [ ] Security-Header gesetzt (z. B. securityheaders.com mindestens A)
 - [ ] Einwilligungen für Personenfotos und Kundenstimmen liegen vor
-- [ ] `npm run check` und `npm run build` laufen ohne Fehler
+- [x] `npm run check` und `npm run build` laufen ohne Fehler (Stand 24.11.2026)
 
 ## 12. Offene Punkte (beim Kunden klären)
 
@@ -332,7 +333,40 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 - [ ] Erreichbarkeit/Öffnungszeiten, bevorzugter Kontaktweg (Anruf, WhatsApp, E-Mail)
 - [ ] Domain und E-Mail: Wo liegen Domain und Postfächer heute, wer betreut den DNS-Umzug? (MX-, SPF-, DKIM- und DMARC-Einträge vorher sichern)
 - [ ] Existiert ein Google-Unternehmensprofil?
-- [ ] Wohin gehen Formularanfragen (E-Mail-Adresse)?
+- [ ] Wohin gehen Formularanfragen (E-Mail-Adresse)? In Netlify unter „Forms → Notifications“ einrichten.
+- [ ] **AVV-Kette klären:** Verantwortlicher ist Manuel Kringelis. Wer betreibt das Netlify-Konto? Falls Alpine Data: AVV zwischen Manuel und Alpine Data mit Netlify als Unterauftragsverarbeiter. Außerdem prüfen, ob Netlify unter dem EU-U.S. Data Privacy Framework zertifiziert ist (Datenschutzerklärung, Abschnitt 2).
+- [ ] Freigabe aller Texte durch Manuel (Startseite: `src/content/homepage/-index.md`, Schimmel-Seite, Datenschutz)
+- [ ] Widerrufsbelehrung: Seite ist leer und auf `draft: true` gesetzt. Wird sie gebraucht (siehe Abschnitt 9)?
+
+## 13. Umsetzungsstand
+
+Stand 24.11.2026, Branch `dev`:
+
+- **Template aufgeräumt:** Blog, Autoren, Kategorien, Tags, Suche, Google Tag Manager, Ankündigungsleiste, Demo-Inhalte und -Bilder sowie `astro-swiper` und `date-fns` entfernt
+- **Grundgerüst:**
+  - Farben und Schriften in [theme.json](../src/config/theme.json)
+  - Logo-Entwurf A als Inline-SVG ([Logo.astro](../src/layouts/components/Logo.astro)), passt sich dem Dark Mode an
+  - Header mit Anker-Navigation, Scroll-Spy und Anruf-Button
+  - Footer mit Kontakt und Navigation
+  - Kontaktdaten zentral unter `contact` in [config.json](../src/config/config.json)
+- **Startseite** ([index.astro](../src/pages/index.astro)):
+  - Abschnitte Hero, Vertrauensleiste, Leistungen, Referenzen (Vorher/Nachher und Galerie), Über uns mit Werdegang, Ablauf mit Block für Hausverwaltungen, Kontakt mit Formular
+  - Texte in [homepage/-index.md](../src/content/homepage/-index.md), Komponenten in `src/layouts/partials/home/`
+  - JSON-LD `HousePainter`
+  - Kundenstimmen fehlen bewusst, bis echte vorliegen
+- **Unterseiten:** `/schimmel`, `/impressum`, `/datenschutz` (Entwurf, neu geschrieben), `/danke` (nach dem Formular, noindex, nicht in der Sitemap) und eine eigene 404-Seite mit Telefonnummer
+- **Kontaktformular:** Netlify Forms mit Honeypot, ohne reCAPTCHA. Beim Umzug zu IONOS braucht es ein anderes Backend.
+- **Sicherheit:**
+  - Astro erzeugt die Content-Security-Policy mit Hashes für alle Skripte und Styles (`security.csp` in [astro.config.mjs](../astro.config.mjs)). Das Inline-Skript für den Dark Mode wird über [themeInit.mjs](../src/lib/themeInit.mjs) gehasht.
+  - Weitere Header (HSTS, `frame-ancestors`, `nosniff`, Referrer- und Permissions-Policy) sowie die Weiterleitungen stehen in [netlify.toml](../netlify.toml).
+  - Die vorhandene `public/.htaccess` enthält nur Caching und Kompression. Für IONOS müssen Weiterleitungen und Header dort ergänzt werden.
+- **SEO und Teilen:** Canonical-URLs auf `www`, `lang="de"`, Open-Graph-Bild (1200 × 630), Favicon aus dem Logo-Pinsel, `robots.txt` mit Sitemap
+- **Noch offen (Technik):**
+  - Lighthouse-Messung auf dem Netlify-Deploy
+  - Formular-Test auf Netlify
+  - Strukturierte Daten `FAQPage` für `/schimmel`
+  - Lightbox für die Galerie (optional)
+  - Logo als SVG mit in Pfade umgewandeltem Text für Druck und Favicon, nach Manuels Freigabe
 
 ## Änderungshistorie
 
@@ -343,3 +377,4 @@ Mögliche spätere Erweiterung: **/referenzen** als eigene Galerieseite, wenn di
 | 24.11.2026 | Migration: Neuanfang ohne alte URL-Struktur; nur übergangsweise 301-Sammelregel für `/index.php/*` |
 | 24.11.2026 | Hauptdomain festgelegt: `www.malerbetrieb-kringelis.de`, die Domain ohne `www` leitet per 301 weiter; `base_url` angepasst |
 | 24.11.2026 | Hosting (Netlify, später IONOS), Meisterbetrieb-Botschaft, Schriften werden selbst ausgeliefert, Logo-Modernisierung, Bildaufbereitung; Dark Mode bleibt vorerst; Impressum-Daten ergänzt |
+| 24.11.2026 | Umsetzung: Template bereinigt, Grundgerüst, Single-Page, Schimmel-Seite, Datenschutz-Entwurf, CSP und Security-Header; Schriftwahl Fraunces und Source Sans 3 |
