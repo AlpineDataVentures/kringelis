@@ -6,16 +6,16 @@ meta_title: "Malermeister in München-Schwabing | Malerbetrieb Kringelis"
 description: "Meisterbetrieb für Maler- und Lackierarbeiten in München-Schwabing und Umland: Wandgestaltung, Spachteltechniken, Stuck, Altbausanierung und zertifizierte Schimmelbekämpfung."
 
 hero:
-  eyebrow: "Meisterbetrieb in München-Schwabing"
-  title: "Malerarbeiten mit Meisterbrief – sauber, termintreu und mit Blick fürs Detail."
-  content: "Vom frischen Anstrich über Spachteltechniken und Stuck bis zur zertifizierten Schimmelbekämpfung: Wir gestalten Ihre Räume in München und Umgebung – persönlich, sorgfältig und so, wie wir es selbst gern hätten."
-  image: "/images/projekte/wandgestaltung/effekttechnik-kupfer-blau-detail.jpg"
-  image_alt: "Nahaufnahme einer Effekttechnik in Kupfer- und Blautönen"
+  title: "Ihr Malermeister in München-Schwabing"
+  subtitle: "Sauber, termintreu, mit Blick fürs Detail."
+  content: "Vom frischen Anstrich über Spachteltechniken bis zu Stuck und Altbausanierung: Wir gestalten Ihre Räume in München und Umgebung – persönlich, sorgfältig und so, wie wir es selbst gern hätten."
+  # Platzhalter, bis ein passendes Foto vorliegt (fertiger Raum oder Manuel bei der Arbeit, Querformat >= 2400 px).
+  # Dann z. B.: image: "/images/projekte/..." und image_alt: "..."
   cta_secondary: "Anfrage senden"
 
 trust:
   - title: "Meisterbetrieb"
-    text: "Maler- und Lackierermeister, eingetragen in die Handwerksrolle"
+    text: "eingetragen in die Handwerksrolle der Handwerkskammer München"
   - title: "Seit 2012"
     text: "eigener Betrieb in Schwabing, im Handwerk seit 1999"
   - title: "Zertifiziert"
@@ -26,7 +26,7 @@ trust:
 services:
   eyebrow: "Leistungen"
   title: "Was wir für Sie tun"
-  intro: "Ob einzelne Wand oder ganze Wohnung, ob Mietwohnung, Eigentum oder Objekt der Hausverwaltung: Sie bekommen alles aus einer Hand – mit fester Ansprechperson vom ersten Termin bis zur sauberen Übergabe."
+  intro: "Ob einzelne Wand oder ganze Wohnung, ob Mietwohnung, Eigentum oder Objekt der Hausverwaltung: Sie bekommen alles aus einer Hand – mit festem Ansprechpartner vom ersten Termin bis zur sauberen Übergabe."
   items:
     - title: "Malerarbeiten"
       image: "/images/projekte/farbe/wandfarbe-beere-altbau.jpg"
@@ -116,6 +116,14 @@ about:
       text: "Was wir zusagen, halten wir ein."
     - title: "Persönlich"
       text: "Feste Ansprechpartner vom ersten Termin bis zur Abnahme."
+  # Fotos folgen: image (Pfad unter /images/...) und image_alt ergänzen, dann verschwindet der Platzhalter.
+  team:
+    - name: "Manuel Kringelis"
+      role: "Maler- und Lackierermeister, Inhaber"
+      text: "Berät Sie vor Ort und ist Ihr Ansprechpartner vom ersten Termin bis zur Abnahme."
+    - name: "Sascha"
+      role: "Maler und Lackierer"
+      text: "Hat sein Handwerk bei uns gelernt und gehört heute fest zum Team."
   timeline:
     - year: "1999"
       text: "Ausbildung zum Maler und Lackierer"

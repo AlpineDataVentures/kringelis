@@ -23,7 +23,7 @@ const jsonLd = {
   url: config.site.base_url,
   telephone: c.phone_link,
   email: c.email,
-  image: new URL(hero.image, config.site.base_url).href,
+  image: new URL(hero.image ?? config.metadata.meta_image, config.site.base_url).href,
   foundingDate: c.founded,
   founder: { "@type": "Person", name: c.owner, jobTitle: c.title },
   address: {

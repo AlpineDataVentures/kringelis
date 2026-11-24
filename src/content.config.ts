@@ -37,11 +37,13 @@ const homepageCollection = defineCollection({
     meta_title: z.string(),
     description: z.string(),
     hero: z.object({
-      eyebrow: z.string(),
       title: z.string(),
+      subtitle: z.string(),
       content: z.string(),
       cta_secondary: z.string(),
-      ...image,
+      // optional: without an image a placeholder is shown
+      image: z.string().optional(),
+      image_alt: z.string().optional(),
     }),
     trust: z.array(z.object({ title: z.string(), text: z.string() })),
     services: z.object({
@@ -80,6 +82,15 @@ const homepageCollection = defineCollection({
       ...sectionHead,
       content: z.string(),
       values: z.array(z.object({ title: z.string(), text: z.string() })),
+      team: z.array(
+        z.object({
+          name: z.string(),
+          role: z.string(),
+          text: z.string(),
+          image: z.string().optional(),
+          image_alt: z.string().optional(),
+        }),
+      ),
       timeline: z.array(z.object({ year: z.string(), text: z.string() })),
       partners: z.string(),
     }),
