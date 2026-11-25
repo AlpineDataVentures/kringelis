@@ -3,6 +3,8 @@ interface Props {
   items: { title: string; text: string }[];
 }
 
+import { softHyphens } from "@/lib/utils/textConverter";
+
 const { items } = Astro.props;
 ---
 
@@ -13,7 +15,7 @@ const { items } = Astro.props;
         items.map((item) => (
           <div class="border-l-2 border-dark/25 pl-4 dark:border-darkmode-dark/25">
             <dt class="font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-dark">
-              {item.title}
+              {softHyphens(item.title)}
             </dt>
             <dd class="mt-1 leading-snug text-text-light dark:text-darkmode-text-light">
               {item.text}

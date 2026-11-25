@@ -32,6 +32,18 @@ h4,
 h5,
 h6 {
   @apply font-secondary font-semibold leading-tight text-text-dark dark:text-darkmode-text-dark;
+  /* long German compounds ("Schimmelbekämpfung") must not overflow on phones */
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* long words and URLs in running text wrap instead of widening the page */
+p,
+li,
+address,
+dd,
+td {
+  overflow-wrap: break-word;
 }
 
 h1,

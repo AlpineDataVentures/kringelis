@@ -1,5 +1,6 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
+import { softHyphens } from "@/lib/utils/textConverter";
 import SectionHeading from "./SectionHeading.astro";
 
 interface Props {
@@ -49,7 +50,7 @@ const { data } = Astro.props;
               />
             </div>
             <div class="flex grow flex-col p-6">
-              <h3 class="h4 mb-3">{item.title}</h3>
+              <h3 class="h4 mb-3">{softHyphens(item.title)}</h3>
               <p class="mb-4">{item.text}</p>
               <p class="mt-auto border-t border-border pt-4 text-text-light dark:border-darkmode-border dark:text-darkmode-text-light">
                 <span class="font-semibold text-text-dark dark:text-darkmode-text-dark">So gehen wir vor: </span>
@@ -61,13 +62,13 @@ const { data } = Astro.props;
       }
     </div>
 
-    <div class="mt-12 grid items-center gap-6 rounded-2xl border-l-[6px] border-primary bg-cream/60 p-8 md:grid-cols-[1fr_auto] md:p-12 dark:border-darkmode-primary dark:bg-darkmode-light">
-      <div>
+    <div class="mt-12 grid grid-cols-1 items-center gap-6 rounded-2xl border-l-[6px] border-primary bg-cream/60 p-6 md:grid-cols-[minmax(0,1fr)_auto] md:p-12 dark:border-darkmode-primary dark:bg-darkmode-light">
+      <div class="min-w-0">
         <span class="eyebrow">{data.highlight.eyebrow}</span>
-        <h3 class="h3 mb-3">{data.highlight.title}</h3>
+        <h3 class="h3 mb-3">{softHyphens(data.highlight.title)}</h3>
         <p class="max-w-2xl">{data.highlight.text}</p>
       </div>
-      <a href={data.highlight.link} class="btn btn-primary whitespace-nowrap">
+      <a href={data.highlight.link} class="btn btn-primary text-center md:whitespace-nowrap">
         {data.highlight.link_label}
       </a>
     </div>

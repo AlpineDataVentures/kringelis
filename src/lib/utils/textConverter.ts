@@ -58,3 +58,23 @@ const htmlEntityDecoder = (htmlWithEntities: string) => {
   );
   return htmlWithoutEntities;
 };
+
+// Soft hyphens (U+00AD) for long German compounds in headings. Browsers without
+// a German hyphenation dictionary would otherwise break them at arbitrary
+// letters on small screens ("Schimmelbek-ämpfung"). Invisible when the word fits.
+const SOFT_HYPHEN_WORDS: Record<string, string> = {
+  Schimmelbekämpfung: "Schimmel\u00ADbekämpfung",
+  Datenschutzerklärung: "Datenschutz\u00ADerklärung",
+  Spachteltechnik: "Spachtel\u00ADtechnik",
+  Wandgestaltung: "Wand\u00ADgestaltung",
+  Altbausanierung: "Altbau\u00ADsanierung",
+  Tapezierarbeiten: "Tapezier\u00ADarbeiten",
+  Lackierarbeiten: "Lackier\u00ADarbeiten",
+  Malerarbeiten: "Maler\u00ADarbeiten",
+  Hausverwaltungen: "Haus\u00ADverwaltungen",
+  Genossenschaften: "Genossen\u00ADschaften",
+  Malermeister: "Maler\u00ADmeister",
+};
+
+export const softHyphens = (content: string) =>
+  content.replace(/[A-Za-zÄÖÜäöüß]+/g, (word) => SOFT_HYPHEN_WORDS[word] ?? word);

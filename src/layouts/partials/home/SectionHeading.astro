@@ -1,4 +1,6 @@
 ---
+import { softHyphens } from "@/lib/utils/textConverter";
+
 interface Props {
   id: string;
   eyebrow: string;
@@ -12,6 +14,6 @@ const { id, eyebrow, title, intro, center = false } = Astro.props;
 
 <div class={`mb-12 max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
   <span class="eyebrow">{eyebrow}</span>
-  <h2 id={`${id}-title`}>{title}</h2>
+  <h2 id={`${id}-title`}>{softHyphens(title)}</h2>
   {intro && <p class="mt-4 text-lg">{intro}</p>}
 </div>
