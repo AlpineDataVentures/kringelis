@@ -1,5 +1,5 @@
 .header {
-  @apply bg-body/95 dark:bg-darkmode-body/95 border-b border-border dark:border-darkmode-border py-3 backdrop-blur supports-[backdrop-filter]:bg-body/85 dark:supports-[backdrop-filter]:bg-darkmode-body/85;
+  @apply bg-body/95 dark:bg-darkmode-body/95 border-b border-border dark:border-darkmode-border py-3 backdrop-blur supports-backdrop-filter:bg-body/85 dark:supports-backdrop-filter:bg-darkmode-body/85;
 }
 
 /* navbar items */

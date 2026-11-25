@@ -24,7 +24,10 @@ const { contact } = config;
       <!-- keep hyphenated place names like "München-Schwabing" on one line from md up -->
       <h1
         class="mb-4 text-h3 text-balance md:text-h2 xl:text-h1"
-        set:html={data.title.replace(/(\S+-\S+)/g, '<span class="md:whitespace-nowrap">$1</span>')}
+        set:html={data.title.replace(
+          /(\S+-\S+)/g,
+          '<span class="md:whitespace-nowrap">$1</span>',
+        )}
       />
       <p class="mb-6 font-secondary text-h4 leading-snug text-text-dark md:text-h3-sm dark:text-darkmode-text-dark">
         {data.subtitle}
@@ -34,7 +37,9 @@ const { contact } = config;
         <a href={`tel:${contact.phone_link}`} class="btn btn-primary">
           Jetzt anrufen: {contact.phone_display}
         </a>
-        <a href="#kontakt" class="btn btn-outline-primary">{data.cta_secondary}</a>
+        <a href="#kontakt" class="btn btn-outline-primary">
+          {data.cta_secondary}
+        </a>
       </div>
       <p class="mt-4 text-text-light dark:text-darkmode-text-light">
         Erreichbar {contact.hours} – sonst rufen wir Sie gerne zurück.
@@ -42,35 +47,35 @@ const { contact } = config;
     </div>
 
     <div class="relative lg:col-span-6">
-      {
-        data.image ? (
-          <div class="overflow-hidden rounded-2xl shadow-xl">
-            <ImageMod
-              src={data.image}
-              alt={data.image_alt ?? ""}
-              width={1200}
-              height={1350}
-              widths={[480, 720, 960, 1200]}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              fit="cover"
-              loading="eager"
-              fetchpriority="high"
-              class="aspect-[8/9] h-full w-full object-cover"
-            />
-          </div>
-        ) : (
-          <Placeholder
-            class="aspect-[8/9]"
-            label="Hero-Foto folgt"
-            hint="Fertiger, wohnlicher Raum (ideal Altbau) oder Manuel bei der Arbeit – Querformat, mind. 2400 px breit"
+      {data.image ? (
+        <div class="overflow-hidden rounded-2xl shadow-xl">
+          <ImageMod
+            src={data.image}
+            alt={data.image_alt ?? ""}
+            width={1200}
+            height={1350}
+            widths={[480, 720, 960, 1200]}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            fit="cover"
+            loading="eager"
+            fetchpriority="high"
+            class="aspect-8/9 h-full w-full object-cover"
           />
-        )
-      }
+        </div>
+      ) : (
+        <Placeholder
+          class="aspect-8/9"
+          label="Hero-Foto folgt"
+          hint="Fertiger, wohnlicher Raum (ideal Altbau) oder Manuel bei der Arbeit – Querformat, mind. 2400 px breit"
+        />
+      )}
       <div class="absolute -bottom-5 left-5 rounded-xl bg-body px-5 py-4 shadow-lg md:left-auto md:-right-4 dark:bg-darkmode-light">
         <p class="font-secondary text-2xl leading-none font-semibold text-text-dark dark:text-darkmode-text-dark">
           Seit {contact.founded}
         </p>
-        <p class="mt-1 text-text-light dark:text-darkmode-text-light">in {contact.district} für Sie da</p>
+        <p class="mt-1 text-text-light dark:text-darkmode-text-light">
+          in {contact.district} für Sie da
+        </p>
       </div>
     </div>
   </div>
