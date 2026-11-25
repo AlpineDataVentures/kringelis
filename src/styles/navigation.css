@@ -11,31 +11,66 @@
   @apply text-text-dark dark:text-darkmode-text-dark;
 }
 
+/* mobile: collapsible panel below the header row (animated via grid rows);
+   desktop: plain inline list */
+.nav-panel {
+  @apply invisible grid grid-rows-[0fr] transition-[grid-template-rows,visibility] duration-300 ease-out motion-reduce:transition-none lg:visible lg:block;
+}
+#nav-toggle:checked ~ .nav-panel {
+  @apply visible grid-rows-[1fr];
+}
+
 .navbar-nav {
-  @apply pt-4 pb-2 text-center lg:p-0 lg:text-left;
+  @apply min-h-0 overflow-hidden lg:flex lg:gap-1 lg:overflow-visible;
 }
 
 .nav-link {
-  @apply text-text-dark hover:text-text-light dark:text-darkmode-text-dark dark:hover:text-darkmode-text-light relative block px-3 py-3 font-semibold transition-colors lg:py-2;
+  @apply text-text-dark hover:text-text-light dark:text-darkmode-text-dark dark:hover:text-darkmode-text-light relative block font-semibold transition-colors;
+  /* mobile: large, full-width tap targets */
+  @apply border-b border-border px-1 py-4 text-lg dark:border-darkmode-border;
+  /* desktop: compact inline links */
+  @apply lg:border-0 lg:px-3 lg:py-2 lg:text-base;
+}
+.nav-item:first-child .nav-link {
+  @apply border-t lg:border-t-0;
+}
+/* spacing lives inside the list items: padding on the collapsing list itself
+   would keep the closed header taller than it looks */
+.nav-item:last-child {
+  @apply mb-3 lg:mb-0;
 }
 
-/* active section (scroll spy): small brush-like underline */
+/* active section (scroll spy): short bordeaux line */
 .nav-link.active {
   @apply text-text-dark dark:text-darkmode-text-dark;
 }
 .nav-link.active::after {
-  @apply bg-primary dark:bg-darkmode-primary absolute right-3 bottom-1 left-3 h-0.5 rounded-full content-[''] lg:bottom-0;
+  @apply bg-primary dark:bg-darkmode-primary absolute bottom-2 left-1 h-0.5 w-8 rounded-full content-[''] lg:right-3 lg:bottom-0 lg:left-3 lg:w-auto;
 }
 
 .nav-toggler {
   @apply text-text-dark dark:text-darkmode-text-dark flex cursor-pointer items-center rounded p-2;
 }
+#nav-toggle:focus-visible ~ div .nav-toggler {
+  @apply outline-dark dark:outline-darkmode-dark outline-2 outline-offset-2;
+}
 
+/* burger <-> close icon (no utility classes in the markup: utilities would
+   override these component rules) */
+.nav-icon-close,
 #nav-toggle:checked ~ div .nav-icon-open {
-  @apply hidden;
+  display: none;
 }
 #nav-toggle:checked ~ div .nav-icon-close {
-  @apply block;
+  display: block;
+}
+
+/* dimmed page behind the open mobile menu (created by the header script) */
+.nav-backdrop {
+  @apply pointer-events-none fixed inset-0 z-20 bg-black/30 opacity-0 transition-opacity duration-300 motion-reduce:transition-none lg:hidden;
+}
+.nav-backdrop.is-visible {
+  @apply pointer-events-auto opacity-100;
 }
 
 /* theme-switcher */

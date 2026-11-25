@@ -19,8 +19,16 @@ const { contact, settings } = config;
   <nav class="navbar container" aria-label="Hauptnavigation">
     <Logo class="order-0 h-12 md:h-14" />
 
-    <!-- mobile menu toggle (CSS-only, enhanced by script below) -->
-    <input id="nav-toggle" type="checkbox" class="peer hidden" />
+    <!-- mobile menu toggle: works with CSS only, the script below adds
+         closing on scroll / outside tap / Esc and a backdrop.
+         Visually hidden (not display:none) so it stays keyboard-accessible. -->
+    <input
+      id="nav-toggle"
+      type="checkbox"
+      class="peer sr-only"
+      aria-controls="nav-menu"
+      aria-label="Hauptmenü"
+    />
 
     <div class="order-1 ml-auto flex items-center gap-3 lg:order-2 lg:ml-6">
       <a
@@ -40,34 +48,29 @@ const { contact, settings } = config;
         <span class="sm:hidden">Anrufen</span>
         <span class="hidden sm:inline">{contact.phone_display}</span>
       </a>
-      <label
-        for="nav-toggle"
-        class="nav-toggler lg:hidden"
-        aria-label="Menü öffnen oder schließen"
-      >
+      <label for="nav-toggle" class="nav-toggler lg:hidden" aria-hidden="true">
         <svg class="nav-icon-open h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
         </svg>
-        <svg class="nav-icon-close hidden h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <svg class="nav-icon-close h-6 w-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path d="M4.3 2.9 10 8.6l5.7-5.7 1.4 1.4-5.7 5.7 5.7 5.7-1.4 1.4-5.7-5.7-5.7 5.7-1.4-1.4 5.7-5.7-5.7-5.7z"></path>
         </svg>
       </label>
     </div>
 
-    <ul
-      id="nav-menu"
-      class="navbar-nav order-3 hidden w-full peer-checked:block lg:order-1 lg:ml-auto lg:flex lg:w-auto lg:gap-1"
-    >
-      {
-        main.map((item) => (
-          <li class="nav-item">
-            <a href={item.url} class="nav-link" data-nav-link>
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div id="nav-menu" class="nav-panel order-3 w-full lg:order-1 lg:ml-auto lg:w-auto">
+      <ul class="navbar-nav">
+        {
+          main.map((item) => (
+            <li class="nav-item">
+              <a href={item.url} class="nav-link" data-nav-link>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </nav>
 </header>
 
@@ -81,6 +84,51 @@ const { contact, settings } = config;
   const toggle = document.getElementById("nav-toggle") as HTMLInputElement | null;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const GAP = 24; // px between header and section heading
+
+  // ---- Mobile menu: close on scroll, outside tap, Esc, link choice ----
+  const SCROLL_TOLERANCE = 40; // px the page may move before the menu closes
+  const desktop = window.matchMedia("(min-width: 1024px)");
+  const backdrop = document.createElement("div");
+  backdrop.className = "nav-backdrop";
+  backdrop.setAttribute("aria-hidden", "true");
+  document.body.append(backdrop);
+  let openedAtY = 0;
+
+  const setMenuOpen = (open: boolean) => {
+    if (!toggle) return;
+    toggle.checked = open;
+    syncMenu();
+  };
+
+  const syncMenu = () => {
+    const open = !!toggle?.checked;
+    backdrop.classList.toggle("is-visible", open);
+    if (open) openedAtY = window.scrollY;
+  };
+
+  toggle?.addEventListener("change", syncMenu);
+  backdrop.addEventListener("click", () => setMenuOpen(false));
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (toggle?.checked && Math.abs(window.scrollY - openedAtY) > SCROLL_TOLERANCE) setMenuOpen(false);
+    },
+    { passive: true },
+  );
+
+  document.addEventListener("pointerdown", (event) => {
+    if (toggle?.checked && header && !header.contains(event.target as Node)) setMenuOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle?.checked) {
+      setMenuOpen(false);
+      toggle.focus();
+    }
+  });
+
+  desktop.addEventListener("change", () => setMenuOpen(false));
 
   const navLinks = new Map<string, HTMLAnchorElement>();
   document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
@@ -99,7 +147,11 @@ const { contact, settings } = config;
   // Target: the section's label/heading, so the section padding is not wasted
   const targetY = (section: HTMLElement) => {
     const anchor = section.querySelector<HTMLElement>(".eyebrow, h1, h2") ?? section;
-    const headerHeight = header?.offsetHeight ?? 0;
+    // height of the header bar only: on phones the menu panel may still be
+    // collapsing while we scroll, so it must not count
+    const panel = document.getElementById("nav-menu");
+    const headerHeight =
+      (header?.offsetHeight ?? 0) - (!desktop.matches && panel ? panel.offsetHeight : 0);
     const y = anchor.getBoundingClientRect().top + window.scrollY - headerHeight - GAP;
     return section.id === "start" ? 0 : Math.max(0, y);
   };
@@ -148,7 +200,7 @@ const { contact, settings } = config;
     if (!section) return;
 
     event.preventDefault();
-    if (toggle) toggle.checked = false; // close mobile menu
+    setMenuOpen(false);
     history.pushState(null, "", url.hash);
     scrollToSection(section, true);
     // move keyboard focus to the target for screen reader / keyboard users
